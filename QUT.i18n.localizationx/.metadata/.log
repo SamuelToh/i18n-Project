@@ -1,0 +1,1598 @@
+!SESSION 2010-04-24 09:38:45.664 -----------------------------------------------
+eclipse.buildId=M20100211-1343
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.google.gdt.eclipse.suite 1 0 2010-04-24 09:39:01.585
+!MESSAGE Registering: com.google.appengine.eclipse.sdkbundle.1.3.1_1.3.1.v201002101412
+
+!ENTRY com.google.gdt.eclipse.suite 1 0 2010-04-24 09:39:01.704
+!MESSAGE Registering: com.google.gwt.eclipse.sdkbundle.2.0.3_2.0.3.v201002191036
+
+!ENTRY com.vectrace.MercurialEclipse 4 0 2010-04-24 09:40:37.194
+!MESSAGE Illegal character in path at index 21: file:/C:/Users/Sabers Father/Desktop/Eclipse/plugins/com.intland.hgbinary.win32_1.3.1/os/win32/hg.exe
+!STACK 0
+java.net.URISyntaxException: Illegal character in path at index 21: file:/C:/Users/Sabers Father/Desktop/Eclipse/plugins/com.intland.hgbinary.win32_1.3.1/os/win32/hg.exe
+	at java.net.URI$Parser.fail(Unknown Source)
+	at java.net.URI$Parser.checkChars(Unknown Source)
+	at java.net.URI$Parser.parseHierarchical(Unknown Source)
+	at java.net.URI$Parser.parse(Unknown Source)
+	at java.net.URI.<init>(Unknown Source)
+	at java.net.URL.toURI(Unknown Source)
+	at com.vectrace.MercurialEclipse.preferences.PreferenceInitializer.detectAndSetHgExecutable(PreferenceInitializer.java:84)
+	at com.vectrace.MercurialEclipse.preferences.PreferenceInitializer.initializeDefaultPreferences(PreferenceInitializer.java:41)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:276)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:130)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:367)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:163)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.loadDefaults(DefaultPreferences.java:236)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:232)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:307)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:543)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:669)
+	at org.eclipse.core.internal.preferences.AbstractScope.getNode(AbstractScope.java:38)
+	at org.eclipse.core.runtime.preferences.DefaultScope.getNode(DefaultScope.java:68)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getDefaultPreferences(ScopedPreferenceStore.java:250)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getPreferenceNodes(ScopedPreferenceStore.java:285)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.internalGet(ScopedPreferenceStore.java:475)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getString(ScopedPreferenceStore.java:535)
+	at com.vectrace.MercurialEclipse.team.MercurialUtilities.getPreference(MercurialUtilities.java:105)
+	at com.vectrace.MercurialEclipse.DefaultConfiguration.getPreference(DefaultConfiguration.java:55)
+	at com.vectrace.MercurialEclipse.commands.HgClients.getPreference(HgClients.java:79)
+	at com.vectrace.MercurialEclipse.team.MercurialUtilities.getHGExecutable(MercurialUtilities.java:89)
+	at com.vectrace.MercurialEclipse.team.MercurialUtilities.isHgExecutableCallable(MercurialUtilities.java:75)
+	at com.vectrace.MercurialEclipse.team.MercurialUtilities.getHGExecutable(MercurialUtilities.java:127)
+	at com.vectrace.MercurialEclipse.MercurialEclipsePlugin.checkHgInstallation(MercurialEclipsePlugin.java:143)
+	at com.vectrace.MercurialEclipse.MercurialEclipsePlugin$1.run(MercurialEclipsePlugin.java:115)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY com.vectrace.MercurialEclipse 2 0 2010-04-24 09:40:37.196
+!MESSAGE Batch size for status command not correct.
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:40:41.804
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 2 75 2010-04-24 09:40:41.806
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.google.gdt.eclipse.core 2 75 2010-04-24 09:40:41.806
+!MESSAGE Errors running builder 'Google WebApp Project Validator' on project 'sample'.
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:42:38.723
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 2 75 2010-04-24 09:42:38.802
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.google.gdt.eclipse.core 2 75 2010-04-24 09:42:38.802
+!MESSAGE Errors running builder 'Google WebApp Project Validator' on project 'sample'.
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:44:33.942
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 2 75 2010-04-24 09:44:33.958
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.google.gdt.eclipse.core 2 75 2010-04-24 09:44:33.958
+!MESSAGE Errors running builder 'Google WebApp Project Validator' on project 'sample'.
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:140)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:238)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui 4 4 2010-04-24 09:51:44.984
+!MESSAGE Invalid preference page path: CSS Files
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:54:05.070
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at org.eclipse.jdt.launching.JavaRuntime.computeDefaultRuntimeClassPath(JavaRuntime.java:1364)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime$ProjectBoundSdk.createClassLoader(GWTRuntime.java:88)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.containsSCL(GWTRuntime.java:432)
+	at com.google.gwt.eclipse.core.validators.GWTProjectValidator.build(GWTProjectValidator.java:89)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:330)
+	at org.eclipse.jdt.internal.ui.util.CoreUtility$BuildJob.run(CoreUtility.java:164)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:54:05.084
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:330)
+	at org.eclipse.jdt.internal.ui.util.CoreUtility$BuildJob.run(CoreUtility.java:164)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 2 75 2010-04-24 09:54:05.091
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.google.gwt.eclipse.core 2 75 2010-04-24 09:54:05.091
+!MESSAGE Errors running builder 'Google Web Toolkit Project Validator' on project 'sample'.
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at org.eclipse.jdt.launching.JavaRuntime.computeDefaultRuntimeClassPath(JavaRuntime.java:1364)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime$ProjectBoundSdk.createClassLoader(GWTRuntime.java:88)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.containsSCL(GWTRuntime.java:432)
+	at com.google.gwt.eclipse.core.validators.GWTProjectValidator.build(GWTProjectValidator.java:89)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:330)
+	at org.eclipse.jdt.internal.ui.util.CoreUtility$BuildJob.run(CoreUtility.java:164)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.google.gdt.eclipse.core 2 75 2010-04-24 09:54:05.091
+!MESSAGE Errors running builder 'Google WebApp Project Validator' on project 'sample'.
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:309)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:341)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:330)
+	at org.eclipse.jdt.internal.ui.util.CoreUtility$BuildJob.run(CoreUtility.java:164)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.jobs 4 2 2010-04-24 09:54:05.100
+!MESSAGE An internal error occurred during: "DataNucleus Enhancer".
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at com.google.appengine.eclipse.core.orm.enhancement.LaunchUtilities.getDefaultClasspath(LaunchUtilities.java:62)
+	at com.google.appengine.eclipse.core.orm.enhancement.EnhancerJob.runInWorkspace(EnhancerJob.java:57)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2010-04-24 09:54:28.861 -----------------------------------------------
+eclipse.buildId=M20100211-1343
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.google.gdt.eclipse.core 1 0 2010-04-24 09:54:36.719
+!MESSAGE Scheduled rebuild of project sample because of plugin update (current version: 1.3.2.v201003242055)
+
+!ENTRY com.vectrace.MercurialEclipse 4 0 2010-04-24 09:54:39.864
+!MESSAGE Illegal character in path at index 21: file:/C:/Users/Sabers Father/Desktop/Eclipse/plugins/com.intland.hgbinary.win32_1.3.1/os/win32/hg.exe
+!STACK 0
+java.net.URISyntaxException: Illegal character in path at index 21: file:/C:/Users/Sabers Father/Desktop/Eclipse/plugins/com.intland.hgbinary.win32_1.3.1/os/win32/hg.exe
+	at java.net.URI$Parser.fail(Unknown Source)
+	at java.net.URI$Parser.checkChars(Unknown Source)
+	at java.net.URI$Parser.parseHierarchical(Unknown Source)
+	at java.net.URI$Parser.parse(Unknown Source)
+	at java.net.URI.<init>(Unknown Source)
+	at java.net.URL.toURI(Unknown Source)
+	at com.vectrace.MercurialEclipse.preferences.PreferenceInitializer.detectAndSetHgExecutable(PreferenceInitializer.java:84)
+	at com.vectrace.MercurialEclipse.preferences.PreferenceInitializer.initializeDefaultPreferences(PreferenceInitializer.java:41)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:276)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:130)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:367)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:163)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.loadDefaults(DefaultPreferences.java:236)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:232)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:307)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:543)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:669)
+	at org.eclipse.core.internal.preferences.AbstractScope.getNode(AbstractScope.java:38)
+	at org.eclipse.core.runtime.preferences.DefaultScope.getNode(DefaultScope.java:68)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getDefaultPreferences(ScopedPreferenceStore.java:250)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getPreferenceNodes(ScopedPreferenceStore.java:285)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.internalGet(ScopedPreferenceStore.java:475)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getBoolean(ScopedPreferenceStore.java:387)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.configureFromPreferences(MercurialStatusCache.java:1140)
+	at com.vectrace.MercurialEclipse.team.cache.AbstractCache.<init>(AbstractCache.java:63)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.<init>(MercurialStatusCache.java:354)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.<init>(MercurialStatusCache.java:353)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$MercurialStatusCacheHolder.<clinit>(MercurialStatusCache.java:192)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.getInstance(MercurialStatusCache.java:361)
+	at com.vectrace.MercurialEclipse.team.ResourceDecorator.<clinit>(ResourceDecorator.java:57)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance0(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:170)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:874)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:51)
+	at org.eclipse.ui.internal.WorkbenchPlugin$1.run(WorkbenchPlugin.java:267)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:263)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:124)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:888)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:251)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:371)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:331)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:54:41.161
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at org.eclipse.jdt.launching.JavaRuntime.computeDefaultRuntimeClassPath(JavaRuntime.java:1364)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime$ProjectBoundSdk.createClassLoader(GWTRuntime.java:88)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.containsSCL(GWTRuntime.java:432)
+	at com.google.gwt.eclipse.core.validators.GWTProjectValidator.build(GWTProjectValidator.java:89)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at com.google.gdt.eclipse.core.BuilderUtilities$3.runInWorkspace(BuilderUtilities.java:224)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:54:41.193
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at com.google.gdt.eclipse.core.BuilderUtilities$3.runInWorkspace(BuilderUtilities.java:224)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 2 566 2010-04-24 09:54:41.234
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.google.gwt.eclipse.core 2 75 2010-04-24 09:54:41.235
+!MESSAGE Errors running builder 'Google Web Toolkit Project Validator' on project 'sample'.
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at org.eclipse.jdt.launching.JavaRuntime.computeDefaultRuntimeClassPath(JavaRuntime.java:1364)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime$ProjectBoundSdk.createClassLoader(GWTRuntime.java:88)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.containsSCL(GWTRuntime.java:432)
+	at com.google.gwt.eclipse.core.validators.GWTProjectValidator.build(GWTProjectValidator.java:89)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at com.google.gdt.eclipse.core.BuilderUtilities$3.runInWorkspace(BuilderUtilities.java:224)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.google.gdt.eclipse.core 2 75 2010-04-24 09:54:41.235
+!MESSAGE Errors running builder 'Google WebApp Project Validator' on project 'sample'.
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at com.google.gdt.eclipse.core.BuilderUtilities$3.runInWorkspace(BuilderUtilities.java:224)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.jobs 4 2 2010-04-24 09:54:41.242
+!MESSAGE An internal error occurred during: "DataNucleus Enhancer".
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at com.google.appengine.eclipse.core.orm.enhancement.LaunchUtilities.getDefaultClasspath(LaunchUtilities.java:62)
+	at com.google.appengine.eclipse.core.orm.enhancement.EnhancerJob.runInWorkspace(EnhancerJob.java:57)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.debug.core 4 2 2010-04-24 09:56:59.663
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:898)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:38)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:924)
+	at org.eclipse.jdt.launching.StandardClasspathProvider.resolveClasspath(StandardClasspathProvider.java:75)
+	at com.google.gwt.eclipse.core.launch.ModuleClasspathProvider.resolveClasspath(ModuleClasspathProvider.java:144)
+	at org.eclipse.jdt.internal.launching.RuntimeClasspathProvider.resolveClasspath(RuntimeClasspathProvider.java:60)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspath(JavaRuntime.java:1205)
+	at org.eclipse.jdt.launching.AbstractJavaLaunchConfigurationDelegate.getClasspath(AbstractJavaLaunchConfigurationDelegate.java:417)
+	at com.google.gdt.eclipse.core.launch.LaunchConfigurationProcessorUtilities.getClasspath(LaunchConfigurationProcessorUtilities.java:149)
+	at com.google.gdt.eclipse.core.launch.LaunchConfigurationProcessorUtilities.getClassLoaderFor(LaunchConfigurationProcessorUtilities.java:132)
+	at com.google.gdt.eclipse.suite.launch.processors.MainTypeProcessor.update(MainTypeProcessor.java:132)
+	at com.google.gdt.eclipse.suite.launch.processors.LaunchConfigurationUpdater.update(LaunchConfigurationUpdater.java:103)
+	at com.google.gdt.eclipse.suite.launch.processors.LaunchConfigAffectingChangesListener.launchConfigurationAdded(LaunchConfigAffectingChangesListener.java:106)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:212)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:199)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationAdded(LaunchManager.java:2071)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:321)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:248)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:219)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:173)
+	at com.google.gdt.eclipse.suite.launch.ui.WebAppLaunchShortcut.createNewLaunchConfiguration(WebAppLaunchShortcut.java:170)
+	at com.google.gdt.eclipse.suite.launch.ui.WebAppLaunchShortcut.findOrCreateLaunchConfiguration(WebAppLaunchShortcut.java:188)
+	at com.google.gdt.eclipse.suite.launch.ui.WebAppLaunchShortcut.launch(WebAppLaunchShortcut.java:116)
+	at com.google.gdt.eclipse.suite.launch.ui.WebAppLaunchShortcut.launch(WebAppLaunchShortcut.java:78)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchShortcutExtension.launch(LaunchShortcutExtension.java:434)
+	at org.eclipse.debug.internal.ui.actions.LaunchShortcutAction.run(LaunchShortcutAction.java:73)
+	at org.eclipse.debug.internal.ui.actions.LaunchShortcutAction.runWithEvent(LaunchShortcutAction.java:121)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:770)
+	at org.eclipse.jface.action.ActionContributionItem$9.handleEvent(ActionContributionItem.java:1284)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3910)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3503)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+
+!ENTRY org.eclipse.debug.core 4 120 2010-04-24 09:56:59.675
+!MESSAGE An exception occurred during launch configuration change notification.
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:898)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:38)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:924)
+	at org.eclipse.jdt.launching.StandardClasspathProvider.resolveClasspath(StandardClasspathProvider.java:75)
+	at com.google.gwt.eclipse.core.launch.ModuleClasspathProvider.resolveClasspath(ModuleClasspathProvider.java:144)
+	at org.eclipse.jdt.internal.launching.RuntimeClasspathProvider.resolveClasspath(RuntimeClasspathProvider.java:60)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspath(JavaRuntime.java:1205)
+	at org.eclipse.jdt.launching.AbstractJavaLaunchConfigurationDelegate.getClasspath(AbstractJavaLaunchConfigurationDelegate.java:417)
+	at com.google.gdt.eclipse.core.launch.LaunchConfigurationProcessorUtilities.getClasspath(LaunchConfigurationProcessorUtilities.java:149)
+	at com.google.gdt.eclipse.core.launch.LaunchConfigurationProcessorUtilities.getClassLoaderFor(LaunchConfigurationProcessorUtilities.java:132)
+	at com.google.gdt.eclipse.suite.launch.processors.MainTypeProcessor.update(MainTypeProcessor.java:132)
+	at com.google.gdt.eclipse.suite.launch.processors.LaunchConfigurationUpdater.update(LaunchConfigurationUpdater.java:103)
+	at com.google.gdt.eclipse.suite.launch.processors.LaunchConfigAffectingChangesListener.launchConfigurationAdded(LaunchConfigAffectingChangesListener.java:106)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:212)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:199)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationAdded(LaunchManager.java:2071)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:321)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:248)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:219)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:173)
+	at com.google.gdt.eclipse.suite.launch.ui.WebAppLaunchShortcut.createNewLaunchConfiguration(WebAppLaunchShortcut.java:170)
+	at com.google.gdt.eclipse.suite.launch.ui.WebAppLaunchShortcut.findOrCreateLaunchConfiguration(WebAppLaunchShortcut.java:188)
+	at com.google.gdt.eclipse.suite.launch.ui.WebAppLaunchShortcut.launch(WebAppLaunchShortcut.java:116)
+	at com.google.gdt.eclipse.suite.launch.ui.WebAppLaunchShortcut.launch(WebAppLaunchShortcut.java:78)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchShortcutExtension.launch(LaunchShortcutExtension.java:434)
+	at org.eclipse.debug.internal.ui.actions.LaunchShortcutAction.run(LaunchShortcutAction.java:73)
+	at org.eclipse.debug.internal.ui.actions.LaunchShortcutAction.runWithEvent(LaunchShortcutAction.java:121)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:770)
+	at org.eclipse.jface.action.ActionContributionItem$9.handleEvent(ActionContributionItem.java:1284)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3910)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3503)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:56:59.867
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at org.eclipse.jdt.launching.JavaRuntime.computeDefaultRuntimeClassPath(JavaRuntime.java:1364)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime$ProjectBoundSdk.createClassLoader(GWTRuntime.java:88)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.containsSCL(GWTRuntime.java:432)
+	at com.google.gwt.eclipse.core.validators.GWTProjectValidator.build(GWTProjectValidator.java:89)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:56:59.877
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 2 566 2010-04-24 09:56:59.882
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.google.gwt.eclipse.core 2 75 2010-04-24 09:56:59.882
+!MESSAGE Errors running builder 'Google Web Toolkit Project Validator' on project 'sample'.
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at org.eclipse.jdt.launching.JavaRuntime.computeDefaultRuntimeClassPath(JavaRuntime.java:1364)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime$ProjectBoundSdk.createClassLoader(GWTRuntime.java:88)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.containsSCL(GWTRuntime.java:432)
+	at com.google.gwt.eclipse.core.validators.GWTProjectValidator.build(GWTProjectValidator.java:89)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.google.gdt.eclipse.core 2 75 2010-04-24 09:56:59.883
+!MESSAGE Errors running builder 'Google WebApp Project Validator' on project 'sample'.
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:57:19.435
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at org.eclipse.jdt.launching.JavaRuntime.computeDefaultRuntimeClassPath(JavaRuntime.java:1364)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime$ProjectBoundSdk.createClassLoader(GWTRuntime.java:88)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.containsSCL(GWTRuntime.java:432)
+	at com.google.gwt.eclipse.core.validators.GWTProjectValidator.build(GWTProjectValidator.java:89)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:57:19.444
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 2 566 2010-04-24 09:57:19.446
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.google.gwt.eclipse.core 2 75 2010-04-24 09:57:19.446
+!MESSAGE Errors running builder 'Google Web Toolkit Project Validator' on project 'sample'.
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at org.eclipse.jdt.launching.JavaRuntime.computeDefaultRuntimeClassPath(JavaRuntime.java:1364)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime$ProjectBoundSdk.createClassLoader(GWTRuntime.java:88)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.containsSCL(GWTRuntime.java:432)
+	at com.google.gwt.eclipse.core.validators.GWTProjectValidator.build(GWTProjectValidator.java:89)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.google.gdt.eclipse.core 2 75 2010-04-24 09:57:19.446
+!MESSAGE Errors running builder 'Google WebApp Project Validator' on project 'sample'.
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:57:32.204
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at org.eclipse.jdt.launching.JavaRuntime.computeDefaultRuntimeClassPath(JavaRuntime.java:1364)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime$ProjectBoundSdk.createClassLoader(GWTRuntime.java:88)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.containsSCL(GWTRuntime.java:432)
+	at com.google.gwt.eclipse.core.validators.GWTProjectValidator.build(GWTProjectValidator.java:89)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 2 2010-04-24 09:57:32.213
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 2 566 2010-04-24 09:57:32.215
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.google.gwt.eclipse.core 2 75 2010-04-24 09:57:32.215
+!MESSAGE Errors running builder 'Google Web Toolkit Project Validator' on project 'sample'.
+!STACK 0
+org.eclipse.jdt.internal.core.ClasspathEntry$AssertionFailedException: Path for IClasspathEntry must be absolute: $HOME/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:4042)
+	at org.eclipse.jdt.core.JavaCore.newLibraryEntry(JavaCore.java:3952)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveVariableEntry(JavaRuntime.java:970)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1066)
+	at org.eclipse.jdt.internal.launching.DefaultEntryResolver.resolveRuntimeClasspathEntry(DefaultEntryResolver.java:53)
+	at org.eclipse.jdt.launching.JavaRuntime.resolveRuntimeClasspathEntry(JavaRuntime.java:1081)
+	at org.eclipse.jdt.launching.JavaRuntime.computeDefaultRuntimeClassPath(JavaRuntime.java:1364)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime$ProjectBoundSdk.createClassLoader(GWTRuntime.java:88)
+	at com.google.gwt.eclipse.core.runtime.GWTRuntime.containsSCL(GWTRuntime.java:432)
+	at com.google.gwt.eclipse.core.validators.GWTProjectValidator.build(GWTProjectValidator.java:89)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.google.gdt.eclipse.core 2 75 2010-04-24 09:57:32.215
+!MESSAGE Errors running builder 'Google WebApp Project Validator' on project 'sample'.
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.validateBuildClasspath(WebAppProjectValidator.java:137)
+	at com.google.gdt.eclipse.core.validators.WebAppProjectValidator.build(WebAppProjectValidator.java:103)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:627)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:170)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:201)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:253)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:218)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:360)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:523)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:502)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:423)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1782)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:430)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:126)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:821)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:866)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1069)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui 4 4 2010-04-24 09:57:41.341
+!MESSAGE Invalid preference page path: CSS Files
+
+!ENTRY org.eclipse.jdt.launching 4 101 2010-04-24 10:01:46.192
+!MESSAGE Main type not specified
+
+!ENTRY org.eclipse.jdt.launching 4 101 2010-04-24 10:01:56.415
+!MESSAGE Main type not specified
+
+!ENTRY org.eclipse.jdt.launching 4 101 2010-04-24 10:02:23.292
+!MESSAGE Main type not specified
+
+!ENTRY org.eclipse.jdt.launching 4 101 2010-04-24 10:02:48.949
+!MESSAGE Main type not specified
+
+!ENTRY org.eclipse.jdt.launching 4 101 2010-04-24 10:02:57.557
+!MESSAGE Main type not specified
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-24 10:03:33.124
+!MESSAGE Autosharing test. Detected repository location: C:\Users\Sabers Father
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-24 10:04:13.258
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:623)
+	at com.vectrace.MercurialEclipse.team.cache.RefreshStatusJob.runSafe(RefreshStatusJob.java:41)
+	at com.vectrace.MercurialEclipse.SafeWorkspaceJob.runInWorkspace(SafeWorkspaceJob.java:41)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:04:13.258
+!MESSAGE Templates: Access is denied
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:04:13.258
+!MESSAGE Start Menu: Access is denied
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:04:13.259
+!MESSAGE SendTo: Access is denied
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:04:13.259
+!MESSAGE PrintHood: Access is denied
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:04:13.259
+!MESSAGE NetHood: Access is denied
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:04:13.259
+!MESSAGE Local Settings: Access is denied
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:04:13.259
+!MESSAGE Documents\My Videos: Access is denied
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:04:13.259
+!MESSAGE Documents\My Pictures: Access is denied
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:04:13.259
+!MESSAGE Documents\My Music: Access is denied
+
+!ENTRY org.eclipse.jdt.launching 4 101 2010-04-24 10:05:21.495
+!MESSAGE Main type not specified
+
+!ENTRY org.eclipse.jdt.launching 4 101 2010-04-24 10:06:11.923
+!MESSAGE Main type not specified
+
+!ENTRY org.eclipse.core.net 4 0 2010-04-24 10:20:01.263
+!MESSAGE WinHttp.GetProxyForUrl for pac failed with error 'An error occurred processing the proxy auto-configuration script
+' #12166.
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-24 10:23:26.942
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:23:26.942
+!MESSAGE 
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-24 10:23:27.194
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:23:27.194
+!MESSAGE 
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-24 10:23:27.486
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:23:27.486
+!MESSAGE 
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-24 10:24:18.393
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-24 10:24:18.393
+!MESSAGE 
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-25 05:36:46.173
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-25 05:36:46.208
+!MESSAGE 
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-25 05:36:46.767
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-25 05:36:46.768
+!MESSAGE 
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-25 05:36:48.740
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-25 05:36:48.740
+!MESSAGE 
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-25 05:36:49.368
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-25 05:36:49.368
+!MESSAGE 
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-25 05:36:50.674
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-25 05:36:50.675
+!MESSAGE 
+
+!ENTRY com.google.appengine.eclipse.core 4 0 2010-04-25 05:37:00.577
+!MESSAGE Unable to update app: Error posting to URL: https://appengine.google.com/api/appversion/create?app_id=asgeirf&version=1&
+403 Forbidden
+You do not have permission to modify this app (app_id=u'asgeirf').
+
+
+See the deployment console for more details
+!STACK 0
+com.google.appengine.tools.admin.AdminException: Unable to update app: Error posting to URL: https://appengine.google.com/api/appversion/create?app_id=asgeirf&version=1&
+403 Forbidden
+You do not have permission to modify this app (app_id=u'asgeirf').
+
+	at com.google.appengine.tools.admin.AppAdminImpl.update(AppAdminImpl.java:62)
+	at com.google.appengine.eclipse.core.proxy.AppEngineBridgeImpl.deploy(AppEngineBridgeImpl.java:271)
+	at com.google.appengine.eclipse.core.deploy.DeployProjectJob.runInWorkspace(DeployProjectJob.java:145)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.io.IOException: Error posting to URL: https://appengine.google.com/api/appversion/create?app_id=asgeirf&version=1&
+403 Forbidden
+You do not have permission to modify this app (app_id=u'asgeirf').
+
+	at com.google.appengine.tools.admin.ServerConnection.send(ServerConnection.java:149)
+	at com.google.appengine.tools.admin.ServerConnection.post(ServerConnection.java:82)
+	at com.google.appengine.tools.admin.AppVersionUpload.send(AppVersionUpload.java:532)
+	at com.google.appengine.tools.admin.AppVersionUpload.beginTransaction(AppVersionUpload.java:349)
+	at com.google.appengine.tools.admin.AppVersionUpload.doUpload(AppVersionUpload.java:111)
+	at com.google.appengine.tools.admin.AppAdminImpl.update(AppAdminImpl.java:56)
+	... 4 more
+
+!ENTRY com.google.appengine.eclipse.core 4 0 2010-04-25 05:39:44.835
+!MESSAGE Unable to update app: Error posting to URL: https://appengine.google.com/api/appversion/create?app_id=QUT-I18N-WS&version=1&
+404 Not Found
+This application does not exist (app_id=u'QUT-I18N-WS').
+
+
+See the deployment console for more details
+!STACK 0
+com.google.appengine.tools.admin.AdminException: Unable to update app: Error posting to URL: https://appengine.google.com/api/appversion/create?app_id=QUT-I18N-WS&version=1&
+404 Not Found
+This application does not exist (app_id=u'QUT-I18N-WS').
+
+	at com.google.appengine.tools.admin.AppAdminImpl.update(AppAdminImpl.java:62)
+	at com.google.appengine.eclipse.core.proxy.AppEngineBridgeImpl.deploy(AppEngineBridgeImpl.java:271)
+	at com.google.appengine.eclipse.core.deploy.DeployProjectJob.runInWorkspace(DeployProjectJob.java:145)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.io.IOException: Error posting to URL: https://appengine.google.com/api/appversion/create?app_id=QUT-I18N-WS&version=1&
+404 Not Found
+This application does not exist (app_id=u'QUT-I18N-WS').
+
+	at com.google.appengine.tools.admin.ServerConnection.send(ServerConnection.java:149)
+	at com.google.appengine.tools.admin.ServerConnection.post(ServerConnection.java:82)
+	at com.google.appengine.tools.admin.AppVersionUpload.send(AppVersionUpload.java:532)
+	at com.google.appengine.tools.admin.AppVersionUpload.beginTransaction(AppVersionUpload.java:349)
+	at com.google.appengine.tools.admin.AppVersionUpload.doUpload(AppVersionUpload.java:111)
+	at com.google.appengine.tools.admin.AppAdminImpl.update(AppAdminImpl.java:56)
+	... 4 more
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2010-04-25 05:42:27.346
+!MESSAGE samplez successfully deployed to Google App Engine
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2010-04-25 05:56:09.880
+!MESSAGE samplez successfully deployed to Google App Engine
+
+!ENTRY com.google.gwt.eclipse.oophm 4 0 2010-04-25 06:00:55.710
+!MESSAGE Unable to determine whether or not the web server supports restarts.
+!STACK 0
+java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.net.SocketException: Socket closed
+	at com.google.gwt.eclipse.oophm.devmode.DevModeServiceClient.waitForResponse(DevModeServiceClient.java:106)
+	at com.google.gwt.eclipse.oophm.devmode.DevModeServiceClient.checkCapabilities(DevModeServiceClient.java:74)
+	at com.google.gwt.eclipse.oophm.devmode.ViewerServiceServer$1.run(ViewerServiceServer.java:205)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.util.concurrent.ExecutionException: java.net.SocketException: Socket closed
+	at java.util.concurrent.FutureTask$Sync.innerGet(Unknown Source)
+	at java.util.concurrent.FutureTask.get(Unknown Source)
+	at com.google.gwt.eclipse.oophm.devmode.DevModeServiceClient.waitForResponse(DevModeServiceClient.java:104)
+	... 3 more
+Caused by: java.net.SocketException: Socket closed
+	at java.net.SocketOutputStream.socketWrite(Unknown Source)
+	at java.net.SocketOutputStream.write(Unknown Source)
+	at com.google.gwt.dev.protobuf.CodedOutputStream.refreshBuffer(CodedOutputStream.java:791)
+	at com.google.gwt.dev.protobuf.CodedOutputStream.flush(CodedOutputStream.java:801)
+	at com.google.gwt.dev.protobuf.AbstractMessageLite.writeDelimitedTo(AbstractMessageLite.java:84)
+	at com.google.gwt.dev.shell.remoteui.MessageTransport$PendingRequest.send(MessageTransport.java:115)
+	at com.google.gwt.dev.shell.remoteui.MessageTransport$3.run(MessageTransport.java:327)
+	... 1 more
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2010-04-25 06:13:31.523
+!MESSAGE samplez successfully deployed to Google App Engine
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2010-04-25 10:20:27.233
+!MESSAGE samplez successfully deployed to Google App Engine
+!SESSION 2010-04-25 12:35:50.398 -----------------------------------------------
+eclipse.buildId=M20100211-1343
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.google.gdt.eclipse.core 1 0 2010-04-25 12:36:01.051
+!MESSAGE Scheduled rebuild of project samplez because of plugin update (current version: 1.3.2.v201003242055)
+
+!ENTRY com.vectrace.MercurialEclipse 4 0 2010-04-25 12:36:12.905
+!MESSAGE Illegal character in path at index 21: file:/C:/Users/Sabers Father/Desktop/Eclipse/plugins/com.intland.hgbinary.win32_1.3.1/os/win32/hg.exe
+!STACK 0
+java.net.URISyntaxException: Illegal character in path at index 21: file:/C:/Users/Sabers Father/Desktop/Eclipse/plugins/com.intland.hgbinary.win32_1.3.1/os/win32/hg.exe
+	at java.net.URI$Parser.fail(Unknown Source)
+	at java.net.URI$Parser.checkChars(Unknown Source)
+	at java.net.URI$Parser.parseHierarchical(Unknown Source)
+	at java.net.URI$Parser.parse(Unknown Source)
+	at java.net.URI.<init>(Unknown Source)
+	at java.net.URL.toURI(Unknown Source)
+	at com.vectrace.MercurialEclipse.preferences.PreferenceInitializer.detectAndSetHgExecutable(PreferenceInitializer.java:84)
+	at com.vectrace.MercurialEclipse.preferences.PreferenceInitializer.initializeDefaultPreferences(PreferenceInitializer.java:41)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:276)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:130)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:367)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:163)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.loadDefaults(DefaultPreferences.java:236)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:232)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:307)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:543)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:669)
+	at org.eclipse.core.internal.preferences.AbstractScope.getNode(AbstractScope.java:38)
+	at org.eclipse.core.runtime.preferences.DefaultScope.getNode(DefaultScope.java:68)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getDefaultPreferences(ScopedPreferenceStore.java:250)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getPreferenceNodes(ScopedPreferenceStore.java:285)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.internalGet(ScopedPreferenceStore.java:475)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getBoolean(ScopedPreferenceStore.java:387)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.configureFromPreferences(MercurialStatusCache.java:1140)
+	at com.vectrace.MercurialEclipse.team.cache.AbstractCache.<init>(AbstractCache.java:63)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.<init>(MercurialStatusCache.java:354)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.<init>(MercurialStatusCache.java:353)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$MercurialStatusCacheHolder.<clinit>(MercurialStatusCache.java:192)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.getInstance(MercurialStatusCache.java:361)
+	at com.vectrace.MercurialEclipse.team.ResourceDecorator.<clinit>(ResourceDecorator.java:57)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance0(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:170)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:874)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:51)
+	at org.eclipse.ui.internal.WorkbenchPlugin$1.run(WorkbenchPlugin.java:267)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:263)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:124)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:888)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:251)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:371)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:331)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-25 18:53:55.167
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-25 18:53:55.167
+!MESSAGE 
+!SESSION 2010-04-26 00:34:45.014 -----------------------------------------------
+eclipse.buildId=M20100211-1343
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.vectrace.MercurialEclipse 4 0 2010-04-26 00:37:37.634
+!MESSAGE Illegal character in path at index 21: file:/C:/Users/Sabers Father/Desktop/Eclipse/plugins/com.intland.hgbinary.win32_1.3.1/os/win32/hg.exe
+!STACK 0
+java.net.URISyntaxException: Illegal character in path at index 21: file:/C:/Users/Sabers Father/Desktop/Eclipse/plugins/com.intland.hgbinary.win32_1.3.1/os/win32/hg.exe
+	at java.net.URI$Parser.fail(Unknown Source)
+	at java.net.URI$Parser.checkChars(Unknown Source)
+	at java.net.URI$Parser.parseHierarchical(Unknown Source)
+	at java.net.URI$Parser.parse(Unknown Source)
+	at java.net.URI.<init>(Unknown Source)
+	at java.net.URL.toURI(Unknown Source)
+	at com.vectrace.MercurialEclipse.preferences.PreferenceInitializer.detectAndSetHgExecutable(PreferenceInitializer.java:84)
+	at com.vectrace.MercurialEclipse.preferences.PreferenceInitializer.initializeDefaultPreferences(PreferenceInitializer.java:41)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:276)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:130)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:367)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:163)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.loadDefaults(DefaultPreferences.java:236)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:232)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:307)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:543)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:669)
+	at org.eclipse.core.internal.preferences.AbstractScope.getNode(AbstractScope.java:38)
+	at org.eclipse.core.runtime.preferences.DefaultScope.getNode(DefaultScope.java:68)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getDefaultPreferences(ScopedPreferenceStore.java:250)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getPreferenceNodes(ScopedPreferenceStore.java:285)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.internalGet(ScopedPreferenceStore.java:475)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getBoolean(ScopedPreferenceStore.java:387)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.configureFromPreferences(MercurialStatusCache.java:1140)
+	at com.vectrace.MercurialEclipse.team.cache.AbstractCache.<init>(AbstractCache.java:63)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.<init>(MercurialStatusCache.java:354)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.<init>(MercurialStatusCache.java:353)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$MercurialStatusCacheHolder.<clinit>(MercurialStatusCache.java:192)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.getInstance(MercurialStatusCache.java:361)
+	at com.vectrace.MercurialEclipse.team.ResourceDecorator.<clinit>(ResourceDecorator.java:57)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance0(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:170)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:874)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:51)
+	at org.eclipse.ui.internal.WorkbenchPlugin$1.run(WorkbenchPlugin.java:267)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:263)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:124)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:888)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:251)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:371)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:331)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.ui 4 4 2010-04-26 09:45:23.944
+!MESSAGE Invalid preference page path: CSS Files
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-27 08:47:52.233
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-27 08:47:52.233
+!MESSAGE 
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-27 08:49:51.442
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-27 08:49:51.442
+!MESSAGE 
+
+!ENTRY org.eclipse.jdt.ui 2 0 2010-04-27 13:50:44.523
+!MESSAGE The 'org.eclipse.jdt.ui.JavaAllCompletionProposalComputer' proposal computer from the 'org.eclipse.jdt.ui' plug-in did not complete normally. The extension took too long to return from the 'computeCompletionProposals()' operation.
+!SESSION 2010-04-27 16:52:09.145 -----------------------------------------------
+eclipse.buildId=M20100211-1343
+java.version=1.6.0_18
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.vectrace.MercurialEclipse 4 0 2010-04-27 16:52:33.704
+!MESSAGE Illegal character in path at index 21: file:/C:/Users/Sabers Father/Desktop/Eclipse/plugins/com.intland.hgbinary.win32_1.3.1/os/win32/hg.exe
+!STACK 0
+java.net.URISyntaxException: Illegal character in path at index 21: file:/C:/Users/Sabers Father/Desktop/Eclipse/plugins/com.intland.hgbinary.win32_1.3.1/os/win32/hg.exe
+	at java.net.URI$Parser.fail(Unknown Source)
+	at java.net.URI$Parser.checkChars(Unknown Source)
+	at java.net.URI$Parser.parseHierarchical(Unknown Source)
+	at java.net.URI$Parser.parse(Unknown Source)
+	at java.net.URI.<init>(Unknown Source)
+	at java.net.URL.toURI(Unknown Source)
+	at com.vectrace.MercurialEclipse.preferences.PreferenceInitializer.detectAndSetHgExecutable(PreferenceInitializer.java:84)
+	at com.vectrace.MercurialEclipse.preferences.PreferenceInitializer.initializeDefaultPreferences(PreferenceInitializer.java:41)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.runInitializer(PreferenceServiceRegistryHelper.java:276)
+	at org.eclipse.core.internal.preferences.PreferenceServiceRegistryHelper.applyRuntimeDefaults(PreferenceServiceRegistryHelper.java:130)
+	at org.eclipse.core.internal.preferences.PreferencesService.applyRuntimeDefaults(PreferencesService.java:367)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.applyRuntimeDefaults(DefaultPreferences.java:163)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.loadDefaults(DefaultPreferences.java:236)
+	at org.eclipse.core.internal.preferences.DefaultPreferences.load(DefaultPreferences.java:232)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:307)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:543)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:669)
+	at org.eclipse.core.internal.preferences.AbstractScope.getNode(AbstractScope.java:38)
+	at org.eclipse.core.runtime.preferences.DefaultScope.getNode(DefaultScope.java:68)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getDefaultPreferences(ScopedPreferenceStore.java:250)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getPreferenceNodes(ScopedPreferenceStore.java:285)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.internalGet(ScopedPreferenceStore.java:475)
+	at org.eclipse.ui.preferences.ScopedPreferenceStore.getString(ScopedPreferenceStore.java:535)
+	at com.vectrace.MercurialEclipse.team.MercurialUtilities.getPreference(MercurialUtilities.java:105)
+	at com.vectrace.MercurialEclipse.DefaultConfiguration.getPreference(DefaultConfiguration.java:55)
+	at com.vectrace.MercurialEclipse.commands.HgClients.getPreference(HgClients.java:79)
+	at com.vectrace.MercurialEclipse.team.MercurialUtilities.getHGExecutable(MercurialUtilities.java:89)
+	at com.vectrace.MercurialEclipse.team.MercurialUtilities.isHgExecutableCallable(MercurialUtilities.java:75)
+	at com.vectrace.MercurialEclipse.team.MercurialUtilities.getHGExecutable(MercurialUtilities.java:127)
+	at com.vectrace.MercurialEclipse.MercurialEclipsePlugin.checkHgInstallation(MercurialEclipsePlugin.java:143)
+	at com.vectrace.MercurialEclipse.MercurialEclipsePlugin$1.run(MercurialEclipsePlugin.java:115)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY com.vectrace.MercurialEclipse 2 0 2010-04-27 16:52:33.715
+!MESSAGE Batch size for status command not correct.
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2010-04-27 18:39:14.152
+!MESSAGE samplez successfully deployed to Google App Engine
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2010-04-27 19:55:35.110
+!MESSAGE samplez successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2010-04-27 20:12:20.093
+!MESSAGE Cannot revalidate non-existent compilation unit PseudoTranslatePanel.java
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-27 20:13:17.988
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-27 20:13:17.988
+!MESSAGE src\main\java\com\example\Helper: The system cannot find the file specified
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-27 20:15:41.329
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-27 20:15:41.330
+!MESSAGE src\main\java\com\example\server\xml\datastructure: The system cannot find the path specified
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-27 20:17:34.748
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-27 20:17:34.749
+!MESSAGE src\main\java\com\example\server\data\factory: The system cannot find the file specified
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2010-04-27 20:19:19.882
+!MESSAGE Strange status received form hg
+!STACK 0
+java.lang.Exception: Strange status received form hg
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.parseStatus(MercurialStatusCache.java:792)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.refreshStatus(MercurialStatusCache.java:1012)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache.access$0(MercurialStatusCache.java:967)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.updateProject(MercurialStatusCache.java:134)
+	at com.vectrace.MercurialEclipse.team.cache.MercurialStatusCache$ProjectUpdateJob.run(MercurialStatusCache.java:116)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vectrace.MercurialEclipse 1 0 2010-04-27 20:19:19.882
+!MESSAGE src\main\java\com\example\server\data\repository\patterns: The system cannot find the path specified

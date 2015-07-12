@@ -1,0 +1,52 @@
+package com.example.server.data.repository.patterns;
+
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.users.User;
+import java.util.Date;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+@PersistenceCapable
+public class AnnotationEntity {
+
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    private Key key;
+
+    @Persistent
+    private String annotationKey;
+
+    @Persistent
+    private String annotationValue;
+
+    public AnnotationEntity(String key, String value){
+    	this.setAnnotationKey(key);
+    	this.setAnnotationValue(value);
+    }
+
+	public void setKey(Key key) {
+		this.key = key;
+	}
+
+	public Key getKey() {
+		return key;
+	}
+
+	public void setAnnotationKey(String annotationKey) {
+		this.annotationKey = annotationKey;
+	}
+
+	public String getAnnotationKey() {
+		return annotationKey;
+	}
+
+	public void setAnnotationValue(String annotationValue) {
+		this.annotationValue = annotationValue;
+	}
+
+	public String getAnnotationValue() {
+		return annotationValue;
+	}
+}

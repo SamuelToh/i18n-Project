@@ -1,0 +1,64 @@
+package com.example.server;
+
+//import com.google.gwt.junit.client.GWTTestCase;
+import static org.junit.Assert.*;
+
+import javax.ws.rs.core.Response;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
+import org.junit.Assert;
+import org.junit.Test;
+import org.jboss.resteasy.util.HttpHeaderNames;
+
+import java.awt.PageAttributes.MediaType;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+/**
+ * @author <a href="mailto:yu.toh@connect.qut.edu.au">Samuel Toh</a>
+ * @version $Revision: 1 $
+ */
+public class TestSRXResource { //extends GWTTestCase {
+
+	
+	private String test = 
+			"<?xml version=\"1.0\"?>"+
+		    "    <Pattern name=\"Motif\" >"+
+		    "        <Motif name=\"motif\" alphabet=\"DNA\" motif=\"actg\" threshold=\"0.7\" />"+
+		    "    </Pattern>";
+	
+	
+	  
+
+	   @Test
+	   public void testAsynch() throws Exception
+	   {
+	      HttpClient client = new HttpClient();
+	      {
+	         PostMethod method = new PostMethod("http://localhost:8888/rest/SRX/Patternz/GodBless_me_Please");
+	         method.setRequestEntity(new StringRequestEntity(test, javax.ws.rs.core.MediaType.TEXT_XML, null));
+	         int status = client.executeMethod(method);
+	         Assert.assertEquals(Response.Status.ACCEPTED.getStatusCode(), status);
+	         //String jobUrl1 = method.getResponseHeader(HttpHeaders.LOCATION).getValue();
+
+//	         GetMethod get = new GetMethod(jobUrl1);
+	/*         status = client.executeMethod(get);
+	         Assert.assertEquals(Response.Status.ACCEPTED.getStatusCode(), status);
+
+	         Thread.sleep(1500);
+	         status = client.executeMethod(get);
+	         Assert.assertEquals(Response.Status.OK.getStatusCode(), status);
+	         Assert.assertEquals(get.getResponseBodyAsString(), "content");
+
+	         method.releaseConnection();*/
+	      }
+	   }
+	
+}

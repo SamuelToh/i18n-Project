@@ -1,0 +1,133 @@
+package com.example.server.data.viewer;
+
+import java.util.LinkedList;
+import java.util.List;
+import javax.jdo.Query;
+import javax.jdo.PersistenceManager;
+
+import qut.localization.service.data.factory.PMF;
+import qut.localization.service.datastructure.Annotation;
+import qut.localization.service.datastructure.Pattern;
+
+
+public class DataViewer {
+	
+	private static String FILTER_BY_PATTERN_NAME = "name == '%s'";
+	
+	public static String getNameFilter(String patternName){
+		return String.format(FILTER_BY_PATTERN_NAME, patternName);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static List<Pattern> viewNames(String standard) throws Exception{
+		List<Pattern> names = new LinkedList<Pattern>();
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query query = pm.newQuery(PatternEntity.class);
+		
+		query.setOrdering("name");
+		
+		try {
+			List<PatternEntity> results = (List<PatternEntity>) query.execute();
+
+			for(PatternEntity entity : results)
+			{
+				Pattern rule = new Pattern();
+				rule.setName(entity.getName());
+				/*rule.setLocaleCode(entity.getLocaleCode());
+				rule.setRuleType(entity.getRuleType());
+				rule.setStandard(entity.getStandard());
+				rule.setBeforeRegExpression(entity.getBeforeRegExpression());
+				rule.set*/
+				names.add(rule);
+			}
+		
+		}catch(Exception e){ 
+			pm.close(); //close this before re throw the exception
+			throw e;
+		}
+		pm.close();
+		return names;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static Pattern viewPattern(String name) throws Exception{
+		Pattern pattern = null;
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query query = pm.newQuery(PatternEntity.class);
+		query.setFilter(getNameFilter(name));
+		query.setOrdering("name");
+		
+		try {
+			//The reason for using a list here is because GQL only accomodate casting
+			//its result to a list format.
+			List<PatternEntity> results = (List<PatternEntity>) query.execute();
+
+			for(PatternEntity entity : results)
+			{
+				pattern = new Pattern();
+				pattern.setName(entity.getName());
+				pattern.setLocaleCode(entity.getLocaleCode());
+				pattern.setRuleType(entity.getRuleType());
+				pattern.setStandard(entity.getStandard());
+				pattern.setBeforeRegExpression(entity.getBeforeRegExpression());
+				pattern.setAfterRegExpression(entity.getAfterRegExpression());
+				pattern.setLastUpdate(entity.getLastUpdate());
+				
+				List<Annotation> patternAnn = new LinkedList<Annotation>();
+				for(AnnotationEntity ann : entity.getAnnotations())
+				{
+					patternAnn.add(new Annotation(ann.getAnnotationKey(), ann.getAnnotationValue()));
+				}
+				
+				if(patternAnn.size() > 0 )
+					pattern.setAnnotations(patternAnn);
+			}
+		
+		}catch(Exception e){ 
+			pm.close(); //close this before re throw the exception
+			throw e;
+		}
+		pm.close();
+		return pattern;
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public static List<PatternEntity> view(String standard, String filter) throws Exception{
+		
+		List<PatternEntity> dettached = null;
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query query = pm.newQuery(PatternEntity.class);
+		
+		//Construct the GQL filter for our query
+		if(filter != null)
+			query.setFilter(filter);
+		
+		query.setOrdering("name");
+		
+		try {
+			List<PatternEntity> results = (List<PatternEntity>) query.execute();
+			//TODO : Check if has results before iterating.
+			
+			//Dettach the main pattern object first
+			dettached = (List<PatternEntity>) pm.detachCopyAll(results);
+			//Dettach all the annotations object from our result
+			for(int i = 0; i < dettached.size(); i ++){
+				if(results.get(i).getAnnotations() != null)	
+				{
+					//Setup cross references
+					dettached.get(i).setAnnotations
+										((List<AnnotationEntity>) 
+				
+												pm.detachCopyAll(results.get(i).getAnnotations()));
+				
+				}
+			}
+		}catch(Exception e){ 
+			pm.close(); //close this before re throw the exception
+			throw e;
+		}
+		pm.close();
+		return dettached;
+	}
+}

@@ -1,0 +1,329 @@
+package com.example.Helper;
+
+import java.io.*;
+
+import javax.xml.parsers.*;
+import javax.xml.validation.*;
+
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+
+/**
+ * This class implements some helper functions for XML.
+ * @author Stefan Maetschke
+ * @version 1.0 (18.01.2005)
+ */
+public class XMLHelper {
+  /** just stores the writer temporarily to make the writing methods simpler */
+  private transient Writer writer = null; 
+  /** this defines the indent for writing lines with elements */
+  private transient String indent = "";
+  /** buffer for writing of single characters */
+  private transient char[] chbuf = new char[1];
+  
+  /**
+   * Constructs an XML object. This constructor is only necessary when the 
+   * write methods are used. Most methods of this class are static.
+   * @param writer Write Writer used by the write methods.
+   */
+  public XMLHelper(Writer writer) {
+    this.writer = writer;
+  }
+  
+  /**
+   * Getter for a specific text content of the given node.
+   * @param node Node.
+   * @param name Name of element tags around the text content.
+   * @return Returns the content or null if no content with the given
+   * name exists.
+   */
+  static public String getTextContent(Node node, String name) {
+    node = node.getFirstChild();
+    while(node!=null) {          
+      if(node.getNodeName().equals(name)) 
+        return(node.getTextContent());
+      node = node.getNextSibling();
+    }
+    return(null);
+  }
+  
+  /**
+   * Getter for the attribute value of an attribute of the given name
+   * for the specified node. The attribute value is returned as a string.
+   * @param node Node.
+   * @param name Name of the attribute.
+   * @return Returns the attribute value as string or null if the attribute
+   * does not exist.
+   */
+  static public String getAttrValString(Node node, String name) {
+    NamedNodeMap attr = node.getAttributes();
+    if(attr != null) {
+      node = attr.getNamedItem(name);
+      if(node != null)
+        return(node.getNodeValue());
+    }
+    return(null);
+  }
+  
+  /**
+   * Getter for the attribute value of an attribute of the given name
+   * for the specified node. The attribute value is returned as a integer.
+   * @param node Node.
+   * @param name Name of the attribute.
+   * @return Returns the attribute value as an integer or 0 if the
+   * attribute does not exist.
+   */
+  static public int getAttrValInt(Node node, String name) {
+    String value = getAttrValString(node, name);
+    return(value != null ? Convert.atoi(value) : 0);
+  }
+  
+  /**
+   * Getter for the attribute value of an attribute of the given name
+   * for the specified node. The attribute value is returned as a double.
+   * @param node Node.
+   * @param name Name of the attribute.
+   * @return Returns the attribute value as a double value or 0.0 if
+   * the attribute does not exist.
+   */
+  static public double getAttrValDouble(Node node, String name) {
+    String value = getAttrValString(node, name);
+    return(value != null ? Convert.atod(value) : 0.0);
+  }
+  
+  /**
+   * Increases the indent for the write methods. (Sets {@link #indent} variable ) 
+   */
+  private void incIndent() {
+    indent += "  ";
+  }
+  
+  /**
+   * Decreases the indent for the write methods. (Sets {@link #indent} variable ) 
+   */
+  private void decIndent() {
+    indent = indent.substring(2);
+  }
+    
+  /**
+   * Writes the start of an element tag to the {@link #writer}.
+   * Uses the {@link #indent} variable.
+   * @param elementName Name of the element
+   * @param hasAttributes hasAttributes true: element has attributes following,
+   * false otherwise.
+   * @throws IOException Throws an IOException if the element cannot be written.
+   */
+  public void writeElementStart(String elementName, boolean hasAttributes) 
+                                 throws IOException {
+    writer.write(indent+"<"+elementName);
+    if(!hasAttributes)
+      writer.write(">\n");
+    incIndent();
+  }
+  
+  /**
+   * Writes the end of an element tag to the {@link #writer}.
+   * Uses the {@link #indent} variable.
+   * @param elementName Name of the element or null.
+   * @throws IOException Throws an IOException if the element cannot be written.
+   */
+  public void writeElementEnd(String elementName) throws IOException {
+    decIndent();
+    if(elementName == null)
+      writer.write(" />\n");
+    else
+      writer.write(indent+"</"+elementName+">\n");
+  }
+  
+  /**
+   * Writes an attribute and its value to the {@link #writer}.
+   * Uses the {@link #indent} variable.
+   * @param attributeName Name of the attribute.
+   * @param value Attribute value.
+   * @throws IOException Throws an IOException if the attribut cannot be written.
+   */
+  public void writeAttribute(String attributeName, String value) throws IOException {
+    if(value != null)
+      writer.write(" "+attributeName+"="+"\""+escapeXML(value)+"\"");
+  }
+
+  /**
+   * Writes the given data string with indent to the {@link #writer}.
+   * Uses the {@link #indent} variable.
+   * @param text Data text to write.
+   * @throws IOException Throws an IOException if the text cannot be written.
+   */
+  public void writeData(String text) throws IOException{
+    writer.write(indent);
+    writer.write(text);
+  }  
+  
+  /**
+   * Writes the given text to the {@link #writer}. The text is not indented.
+   * @param text Text to write.
+   * @throws IOException Throws an IOException if the text cannot be written.
+   */
+  public void write(String text) throws IOException{
+    writer.write(text);
+  }  
+  
+  /**
+   * Writes the given character to the {@link #writer}. 
+   * @param ch Character to write.
+   * @throws IOException Throws an IOException if the character cannot be written.
+   */
+  public void write(char ch) throws IOException{
+    chbuf[0] = ch;
+    writer.write(chbuf);
+  }  
+  
+  /**
+   * Writes an XML tree using the write specified during construction.
+   * @param node Start node of the XML document to write.
+   * @throws IOException Throws an IOException when the data could not be
+   * written.
+   */
+   public void write(Node node) throws IOException {
+    int type = node.getNodeType();
+    switch (type) {
+      case Node.ELEMENT_NODE:
+        writer.write("<" + node.getNodeName());
+        NamedNodeMap attrs = node.getAttributes();
+        int len = attrs.getLength();
+        for (int i=0; i<len; i++) {
+          Attr attr = (Attr)attrs.item(i);
+          write(" " + attr.getNodeName() + "=\"" +
+              escapeXML(attr.getNodeValue()) + "\"");
+        }
+        writer.write('>');
+        NodeList children = node.getChildNodes();
+        len = children.getLength();
+        for (int i=0; i<len; i++)
+          write(children.item(i));
+        write("</" + node.getNodeName() + ">");
+        break;
+      case Node.ENTITY_REFERENCE_NODE:
+        write("&" + node.getNodeName() + ";");
+        break;
+      case Node.CDATA_SECTION_NODE:
+        write("<![CDATA[" + node.getNodeValue() + "]]>");
+        break;
+      case Node.TEXT_NODE:
+        write(escapeXML(node.getNodeValue()));
+        break;
+      case Node.PROCESSING_INSTRUCTION_NODE:
+        writer.write("<?" + node.getNodeName());
+        String data = node.getNodeValue();
+        if (data!=null && data.length()>0)
+          write(" " + data);
+        write("?>\n");
+        break;
+    }
+  }
+
+  /**
+   * Converts characters with a special meaning in XML to their escaped
+   * representation in XML, e.g. & -> &amp;, > " -> &quot;
+   * @param text Text to convert.
+   * @return Returns the converted text.
+   */
+  static public String escapeXML(String text) {
+    StringBuffer buf = new StringBuffer();
+    int len = (text != null) ? text.length() : 0;
+    for (int i=0; i<len; i++) {
+      char ch = text.charAt(i);
+      switch (ch) {
+        case '<': buf.append("&lt;"); break;
+        case '>': buf.append("&gt;"); break;
+        case '&': buf.append("&amp;"); break;
+        case '"': buf.append("&quot;"); break;
+        case '\'': buf.append("&apos;"); break;
+        default: buf.append(ch);
+      }
+    }
+    return buf.toString();
+  }  
+  
+  /**
+   * Loads an XML document from the given file.
+   * @param file XML file to load.
+   * @param isValidating true: XML doc is validated against the DTD specifed
+   *   within the XML document, false: otherwise.
+   *   This does not work for XML Schemata! See {@link #load(File, Schema)}
+   *   for that.
+   * @param isNamespaceAware true: XML doc is namespace aware, false: otherwise.
+   * @return Returns an XML document.
+   * @throws IOException Throws an exception if the file couldn't be read.
+   */
+  static public Document load(File file, boolean isValidating, 
+                             boolean isNamespaceAware) throws IOException {
+    try {
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      factory.setValidating(isValidating);   
+      factory.setNamespaceAware(isNamespaceAware);
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      builder.setErrorHandler(new XMLErrorHandler());
+      return(builder.parse(file));
+    } 
+    catch(ParserConfigurationException pce) {
+      throw new IOException("Parser configuration error: "+pce);
+    }
+    catch(SAXException se) {
+      throw new IOException("XML parsing error: "+se);
+    } 
+  }
+  
+  /**
+   * Loads an XML document from the given file and validates it against the
+   * specified schema.
+   * @param file XML file to load.
+   * @param schema Schema to validate against. Can be null. In this case
+   *        the 'schema location hint' within the XML file will be analysed
+   *        and used if possible. Here an example how to create a schema
+   * <pre>       
+   *   SchemaFactory schemaFactory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+   *   Schema schema = schemaFactory.newSchema(new File("test/BioPatML.xsd");
+   * </pre>       
+   * @return Returns an XML document.
+   * @throws IOException Throws an exception if the file couldn't be read.
+   */
+  static public Document load(File file, Schema schema) throws IOException {
+    try {
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      factory.setValidating(false);   // no DTD, setSchema() instead!
+      factory.setNamespaceAware(true);
+      if(schema==null) 
+         factory.setSchema(SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema").newSchema());
+      else
+        factory.setSchema(schema);
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      builder.setErrorHandler(new XMLErrorHandler());
+      return (builder.parse(file));
+    }
+    catch (ParserConfigurationException pce) {
+      throw new IOException("Parser configuration error: " + pce);
+    }
+    catch (SAXException se) {
+      throw new IOException("XML parsing error: " + se);
+    }
+  }
+  
+  
+  
+  /**
+   * Getter for the top level node with the given name.
+   * @param document An XML document.
+   * @param name The name of the node.
+   * @return Returns the top level node with the given name or null if no 
+   * such node exits.
+   */
+  static public Node getTopLevelNode(Document document, String name) {
+    Node node = document.getDocumentElement().getFirstChild();
+    
+    while(node!=null) {
+      if(node.getNodeName().equals(name))
+        return(node);
+      node = node.getNextSibling();
+    }  
+    return(null);
+  }

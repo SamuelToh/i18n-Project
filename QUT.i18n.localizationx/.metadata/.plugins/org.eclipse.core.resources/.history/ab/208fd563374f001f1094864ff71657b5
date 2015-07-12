@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>sample</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Sample Application</name>
+
+	<properties>
+		<version.resteasy>1.2.1.GA</version.resteasy>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+
+					<buildOutputDirectory>war/WEB-INF/classes</buildOutputDirectory>
+
+					<additionalBuildcommands>
+						<buildCommand>
+							<name>com.google.gwt.eclipse.core.gwtProjectValidator</name>
+						</buildCommand>
+						<buildCommand>
+							<name>com.google.appengine.eclipse.core.enhancerbuilder</name>
+						</buildCommand>
+						<buildCommand>
+							<name>com.google.appengine.eclipse.core.projectValidator</name>
+						</buildCommand>
+						<buildCommand>
+							<name>com.google.gdt.eclipse.core.webAppProjectValidator</name>
+						</buildCommand>
+					</additionalBuildcommands>
+
+					<additionalProjectnatures>
+						<projectnature>com.google.gwt.eclipse.core.gwtNature</projectnature>
+						<projectnature>com.google.appengine.eclipse.core.gaeNature</projectnature>
+						<projectnature>com.google.gdt.eclipse.core.webAppNature</projectnature>
+					</additionalProjectnatures>
+
+					<classpathContainers>
+						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+						<classpathContainer>com.google.gwt.eclipse.core.GWT_CONTAINER</classpathContainer>
+						<classpathContainer>com.google.appengine.eclipse.core.GAE_CONTAINER</classpathContainer>
+					</classpathContainers>
+
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<!--
+					This plugin will copy dependencies into the right outputDirectory.
+					Usage: mvn dependency:copy-dependencies
+				-->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>war/WEB-INF/lib</outputDirectory>
+					<overWriteReleases>true</overWriteReleases>
+					<overWriteSnapshots>true</overWriteSnapshots>
+					<overWriteIfNewer>true</overWriteIfNewer>
+					<includeScope>runtime</includeScope>
+					<excludeScope>provided</excludeScope>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>net.sf.okapi</groupId>
+			<artifactId>okapi-core</artifactId>
+			<version>0.6-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>${version.resteasy}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-atom-provider</artifactId>
+			<version>${version.resteasy}</version>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.6</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.1</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>repository.jboss.org</id>
+			<name>JBoss Repository</name>
+			<url>http://repository.jboss.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>openl10n.net</id>
+			<name>OpenL10N.net Repository</name>
+			<url>http://openl10n.net/maven2</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>weekly</updatePolicy>
+			</snapshots>
+		</repository>
+		<repository>
+		    <id>okapi-pub-repo</id>
+        	<name>OkapiPublicRepository</name>
+        	<url>http://okapi.opentag.com/maven2</url>
+    	</repository>
+	</repositories>
+
+</project>

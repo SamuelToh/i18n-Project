@@ -1,0 +1,20 @@
+package qut.localization.service.datastructure;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "book")
+public class Pattern {
+
+  	private String name;
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@XmlElement
+	public String getName() {
+		return name;
+	}
+}

@@ -1,0 +1,38 @@
+package com.example.server.data.writer;
+
+import javax.jdo.PersistenceManager;
+
+import com.example.server.data.factory.PMF;
+import com.example.server.data.repository.patterns.PatternEntity;
+
+/**
+ * DataCommitter class facilitates saving of our pattern entity into
+ * google big table.
+ * @author <a href="mailto:yu.toh@connect.qut.edu.au">Samuel Toh</a>
+ * @version $Revision: 1 $
+ */
+public class DataCommitter {
+
+	/**
+	 * Commit our data into the server.
+	 * 
+	 * @param pattern to be saved into the data repository.
+	 * @throws Exception thrown when data commit fails.
+	 */
+	public void Commit(PatternEntity pattern) throws Exception{
+
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		
+		try {
+			//try commit the data
+			pm.makePersistent(pattern); 
+			
+		}catch(Exception e){ 
+			pm.close(); //close this before re throw the exception
+			throw e;
+
+		}
+		pm.close();
+	}
+				
+}

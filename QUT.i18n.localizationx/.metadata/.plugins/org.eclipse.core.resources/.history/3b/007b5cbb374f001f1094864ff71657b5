@@ -1,0 +1,124 @@
+package com.example.client;
+
+public class PsuedoTranslator {
+
+	public static String translate(String str) {
+		StringBuilder strBuilder = new StringBuilder(str.length());
+		for(int i=0;i<str.length();i++) {
+			strBuilder.append( translate(str.charAt(i)) );
+		}
+		return strBuilder.toString();
+	}
+	
+	public static char translate(char c) {
+		switch (c) {
+		case 'a':
+			return 'α';
+		case 'b':
+			return 'в';
+		case 'c':
+			return '¢';
+		case 'd':
+			return '∂';
+		case 'e':
+			return 'є';
+		case 'f':
+			return 'ƒ';
+		case 'g':
+			return 'ģ';
+		case 'h':
+			return 'н';
+		case 'i':
+			return 'ι';
+		case 'j':
+			return 'נ';
+		case 'k':
+			return 'к';
+		case 'l':
+			return 'ℓ';
+		case 'm':
+			return 'м';
+		case 'n':
+			return 'и';
+		case 'o':
+			return 'σ';
+		case 'p':
+			return 'ρ';
+		case 'q':
+			return 'q';
+		case 'r':
+			return 'я';
+		case 's':
+			return 'ѕ';
+		case 't':
+			return 'т';
+		case 'u':
+			return 'υ';
+		case 'v':
+			return 'ν';
+		case 'w':
+			return 'ω';
+		case 'x':
+			return 'χ';
+		case 'y':
+			return 'у';
+		case 'z':
+			return 'ʐ';
+		case 'A':
+			return 'Ă';
+		case 'B':
+			return 'β';
+		case 'C':
+			return 'Č';
+		case 'D':
+			return 'Ď';
+		case 'E':
+			return 'Ĕ';
+		case 'F':
+			return 'Ŧ';
+		case 'G':
+			return 'Ğ';
+		case 'H':
+			return 'Ĥ';
+		case 'I':
+			return 'Ĩ';
+		case 'J':
+			return 'Ĵ';
+		case 'K':
+			return 'Ķ';
+		case 'L':
+			return 'Ĺ';
+		case 'M':
+			return 'М';
+		case 'N':
+			return 'Ń';
+		case 'O':
+			return 'Ő';
+		case 'P':
+			return 'Р';
+		case 'Q':
+			return 'Q';
+		case 'R':
+			return 'Ŕ';
+		case 'S':
+			return 'Ś';
+		case 'T':
+			return 'Ť';
+		case 'U':
+			return 'Ú';
+		case 'V':
+			return 'V';
+		case 'W':
+			return 'Ŵ';
+		case 'X':
+			return 'Ж';
+		case 'Y':
+			return 'Ŷ';
+		case 'Z':
+			return 'Ź';
+		default:
+			return c;
+		}
+	}
+	
+}

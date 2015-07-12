@@ -1,0 +1,5 @@
+package qut.localization.service.data.repository;
+
+public class DataManager {
+
+}

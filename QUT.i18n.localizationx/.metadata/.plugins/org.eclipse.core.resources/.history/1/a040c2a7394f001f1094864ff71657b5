@@ -1,0 +1,33 @@
+package com.example.server;
+
+import java.util.Date;
+
+import javax.jdo.PersistenceManager;
+
+import com.example.client.GreetingService;
+import com.example.client.PsuedoTranslator;
+import com.example.shared.FieldVerifier;
+import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+
+/**
+ * The server side implementation of the RPC service.
+ */
+@SuppressWarnings("serial")
+public class GreetingServiceImpl extends RemoteServiceServlet implements
+		GreetingService {
+
+	public String greetServer(String input) throws IllegalArgumentException {
+		Date date = new Date();
+
+		Greeting greeting = new Greeting(input, date);
+
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        try {
+            pm.makePersistent(greeting);
+        } finally {
+            pm.close();
+        }
+        
+		return PsuedoTranslator.translate(input);
+	}
+}

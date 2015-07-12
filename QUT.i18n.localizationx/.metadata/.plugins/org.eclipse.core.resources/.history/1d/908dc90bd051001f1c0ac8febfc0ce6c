@@ -1,0 +1,7 @@
+package com.example.server;
+
+public class Authenticator {
+
+	static public final String SERVICE_PASSWORD = "localization";
+	
+}

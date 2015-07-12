@@ -1,0 +1,96 @@
+package com.example.server.data.repository.patterns;
+
+
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.users.User;
+import java.util.Date;
+import java.util.List;
+
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+/**
+ * A Google datastore entity.
+ * This data entity encapsulates details of a Pattern object.
+ * 
+ * @author <a href="mailto:yu.toh@connect.qut.edu.au">Samuel Toh</a>
+ * @version $Revision: 1 $
+ */
+@PersistenceCapable
+public class PatternEntity {
+
+	@PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    private Key key;
+
+    @Persistent
+    private String name;
+
+    @Persistent
+    private String standard;
+    
+    @Persistent
+    private String regularExpression;
+        
+    @Persistent
+    private Date lastUpdate;
+    
+    @Persistent(mappedBy = "AnnotationEntity")
+    private List<AnnotationEntity> annotations;
+
+    /**
+     * Sets the primary key of this data entity
+     * 
+     * @param key
+     */
+	public void setKey(Key key) {
+		this.key = key;
+	}
+
+	public Key getKey() {
+		return key;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setStandard(String standard) {
+		this.standard = standard;
+	}
+
+	public String getStandard() {
+		return standard;
+	}
+
+	public void setRegularExpression(String regularExpression) {
+		this.regularExpression = regularExpression;
+	}
+
+	public String getRegularExpression() {
+		return regularExpression;
+	}
+
+	public void setLastUpdate(Date lastUpdate) {
+		this.lastUpdate = lastUpdate;
+	}
+
+	public Date getLastUpdate() {
+		return lastUpdate;
+	}
+
+	public void setAnnotations(List<AnnotationEntity> annotations) {
+		this.annotations = annotations;
+	}
+
+	public List<AnnotationEntity> getAnnotations() {
+		return annotations;
+	}
+
+}

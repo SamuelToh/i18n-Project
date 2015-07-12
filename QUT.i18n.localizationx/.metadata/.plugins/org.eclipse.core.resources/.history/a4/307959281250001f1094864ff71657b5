@@ -1,0 +1,82 @@
+package com.example.server;
+
+//import com.google.gwt.junit.client.GWTTestCase;
+import static org.junit.Assert.*;
+
+import javax.ws.rs.core.Response;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
+import org.junit.Assert;
+import org.junit.Test;
+import org.jboss.resteasy.util.HttpHeaderNames;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+/**
+ * @author <a href="mailto:yu.toh@connect.qut.edu.au">Samuel Toh</a>
+ * @version $Revision: 1 $
+ */
+public class TestSRXResource { //extends GWTTestCase {
+
+	  @Test
+	  public void testCreatePattern() throws IOException{
+		  System.out.println("Create a new pattern in SRX.");
+		  //create our pattern item 
+		  String newPattern = 
+			  "<Pattern>"
+			  	+ "<name>Sentence breaker</name>" 
+			  	+ "<standard>SRX</standard>"
+			  	+ "<regularExpression> \n </regularExpression>"
+		  		+ "</Pattern>";
+		  
+		  URL postUrl = new URL("http://localhost:8888/rest/SRX/Patternx/GodBless_me_Please");
+		  //URL postUrl = new URL("http://1.latest.qut-tendious-localization.appspot.com/rest/SRX/Patterns/GodBless_me_Please");
+		  HttpURLConnection connection = (HttpURLConnection) postUrl.openConnection();
+	      connection.setDoOutput(true);
+	      connection.setInstanceFollowRedirects(false);
+	      connection.setRequestMethod("POST");
+	      //connection.setRequestProperty("Content-Type", "application/xml");
+	      OutputStream os = connection.getOutputStream();
+	      os.write(newPattern.getBytes());
+	      os.flush();
+	      //Assert.assertEquals(HttpURLConnection.HTTP_CREATED, connection.getResponseCode());
+	      Assert.assertEquals(200, connection.getResponseCode());
+	      System.out.println("Location: " + connection.getHeaderField("Location"));
+	      connection.disconnect();
+	      assertTrue(true);
+	  }
+
+
+	   @Test
+	   public void testAsynch() throws Exception
+	   {
+	      HttpClient client = new HttpClient();
+	      {
+	         PostMethod method = new PostMethod("http://localhost:9095/resource?asynch=true");
+	         method.setRequestEntity(new StringRequestEntity("content", "text/plain", null));
+	         int status = client.executeMethod(method);
+	         Assert.assertEquals(Response.Status.ACCEPTED.getStatusCode(), status);
+	         //String jobUrl1 = method.getResponseHeader(HttpHeaders.LOCATION).getValue();
+
+//	         GetMethod get = new GetMethod(jobUrl1);
+	/*         status = client.executeMethod(get);
+	         Assert.assertEquals(Response.Status.ACCEPTED.getStatusCode(), status);
+
+	         Thread.sleep(1500);
+	         status = client.executeMethod(get);
+	         Assert.assertEquals(Response.Status.OK.getStatusCode(), status);
+	         Assert.assertEquals(get.getResponseBodyAsString(), "content");
+
+	         method.releaseConnection();*/
+	      }
+	   }
+	
+}

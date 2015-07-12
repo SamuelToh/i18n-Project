@@ -1,0 +1,63 @@
+package com.example.server;
+
+import java.util.Date;
+
+import javax.jdo.PersistenceManager;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.Path;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import com.example.server.data.repository.patterns.PatternEntity;
+import com.google.gwt.http.client.Response;
+
+@Path("/")
+public class HelloResource {
+
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/{lang}")
+	public String hello(@PathParam("lang") String lang){
+		return "hello world " + lang;
+	}
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/SRX/Patterns/{request}")
+	public String patternSRX(@PathParam("request") String request){
+		//We first check what exactly is the query
+		if(request.equals("ALL"))
+			return "Retrieving all patterns";
+		//Else we return only the specified pattern only
+		return "Returning pattern name" + request;
+
+	}
+	
+	@POST
+	//@Consumes("text/xml")
+	@Path("/SRX/Patterns/{request}")
+	public String newPattern(@PathParam("request") String pattern){
+		
+		Date date = new Date();
+
+		Greeting greeting = new Greeting(pattern, date);
+
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        try {
+            pm.makePersistent(greeting);
+        } finally {
+            pm.close();
+        }
+        
+        
+		System.out.println("t");
+		return "Created";
+		//return 202;
+	}
+	
+}

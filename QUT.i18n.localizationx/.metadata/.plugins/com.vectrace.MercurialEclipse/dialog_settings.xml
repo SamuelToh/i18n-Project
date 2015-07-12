@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.vectrace.MercurialEclipse.wizards.CloneRepoWizard">
+		<list key="ConfigurationWizardMainPage.STORE_USERNAME_ID">
+			<item value=""/>
+		</list>
+	</section>
+</section>

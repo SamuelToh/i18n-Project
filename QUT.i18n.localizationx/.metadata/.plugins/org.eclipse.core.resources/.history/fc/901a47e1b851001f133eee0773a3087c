@@ -1,0 +1,5 @@
+package com.example.server.data.repository.patterns;
+
+public class Annotation {
+
+}

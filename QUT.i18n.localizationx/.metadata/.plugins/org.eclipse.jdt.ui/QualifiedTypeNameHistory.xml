@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="javax.xml.ws.Response"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.HttpClient"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.methods.PostMethod"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.methods.StringRequestEntity"/>
+<fullyQualifiedTypeName name="com.google.gwt.http.client.Response"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.methods.GetMethod"/>
+<fullyQualifiedTypeName name="java.awt.PageAttributes.MediaType"/>
+<fullyQualifiedTypeName name="javax.ws.rs.core.MediaType"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+<fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
+<fullyQualifiedTypeName name="org.datanucleus.query.node.Node"/>
+<fullyQualifiedTypeName name="com.example.server.data.repository.patterns.AnnotationEntity"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Node"/>
+<fullyQualifiedTypeName name="com.example.Helper.XMLHelper"/>
+<fullyQualifiedTypeName name="com.example.server.data.factory.PMF"/>
+<fullyQualifiedTypeName name="javax.jdo.PersistenceManager"/>
+<fullyQualifiedTypeName name="com.example.server.data.writer.DataCommitter"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
+<fullyQualifiedTypeName name="com.example.server.data.repository.patterns.PatternEntity"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.example.server.data.viewer.DataViewer"/>
+<fullyQualifiedTypeName name="java.io.StringWriter"/>
+<fullyQualifiedTypeName name="javax.ws.rs.core.Response"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlAttribute"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElement"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="com.example.server.data.repository.patterns.Pattern"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElements"/>
+<fullyQualifiedTypeName name="com.example.server.data.repository.patterns.Annotation"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElementWrapper"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="javax.ws.rs.HeaderParam"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.methods.PutMethod"/>
+</qualifiedTypeNameHistroy>

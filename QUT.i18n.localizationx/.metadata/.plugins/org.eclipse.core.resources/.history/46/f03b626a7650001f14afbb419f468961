@@ -1,0 +1,91 @@
+package com.example.server;
+
+//import com.google.gwt.junit.client.GWTTestCase;
+import static org.junit.Assert.*;
+
+import javax.ws.rs.core.Response;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
+import org.junit.Assert;
+import org.junit.Test;
+import org.jboss.resteasy.util.HttpHeaderNames;
+
+import com.example.Helper.XMLHelper;
+import com.example.server.data.repository.patterns.PatternEntity;
+
+import java.awt.PageAttributes.MediaType;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+/**
+ * @author <a href="mailto:yu.toh@connect.qut.edu.au">Samuel Toh</a>
+ * @version $Revision: 1 $
+ */
+public class SrxResourceTest { //extends GWTTestCase {
+	
+	/* The pattern xml used in our web service */
+	private String patternXml = 
+			"<?xml version=\"1.0\"?>"+
+		    "    <Pattern name=\"Paragraphing\" standard=\"SRX\" regEx=\"\\n\">"+
+		    "        <Annotations> " +
+		    "			<Annotation key=\"Author\" value=\"QUT.SamuelToh\" />" +
+		    "			<Annotation key=\"Purpose\" value=\"Testing\" />" +
+		    "		 </Annotations> " +
+		    "    </Pattern>";
+	
+	/* our localhost port */
+	private static String PORT = "8888";
+	
+	/* Test reading in our SRX pattern operation*/
+	@Test
+	public void testReadPattern() throws Exception{
+		SrxResource reader = new SrxResource();
+		InputStream is = new ByteArrayInputStream(patternXml.getBytes("UTF-8"));
+		
+		PatternEntity pattern = reader.readPattern(is);
+		
+		//Test basic attributes of our pattern entity
+		assertEquals("Paragraphing", pattern.getName());
+		assertEquals("SRX", pattern.getStandard());
+		//parse all escape character and show them as the appropriate charsequence 
+		assertEquals("\\n", XMLHelper.escapeXML(pattern.getRegularExpression()));
+		
+		//Test its annotations
+		assertEquals(2, pattern.getAnnotations().size());
+		assertEquals("Author", pattern.getAnnotations().get(0).getAnnotationKey());
+		assertEquals("QUT.SamuelToh", pattern.getAnnotations().get(0).getAnnotationValue());
+		assertEquals("Purpose", pattern.getAnnotations().get(1).getAnnotationKey());
+		assertEquals("Testing", pattern.getAnnotations().get(1).getAnnotationValue());
+	}
+	
+	/* Test calling our web service through posting it with some XML pattern data*/
+	@Test
+	public void testPostPattern() throws Exception
+	{
+		//Setup a client to emulate our connection
+		HttpClient client = new HttpClient();
+		{
+			PostMethod method = new PostMethod
+										("http://localhost:" + PORT +"/rest/SRX/Patterns");
+			method.setRequestEntity
+					(new StringRequestEntity(patternXml,
+												javax.ws.rs.core.MediaType.TEXT_XML, null));
+			
+			int status = client.executeMethod(method);
+			Assert.assertEquals(Response.Status.NO_CONTENT.getStatusCode(), status);
+
+			//Close our connection
+			method.releaseConnection();
+	      }
+	   }
+	
+}

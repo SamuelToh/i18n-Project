@@ -1,0 +1,5 @@
+package com.example.server.data.viewer;
+
+public class DataViewer {
+
+}

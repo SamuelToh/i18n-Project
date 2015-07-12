@@ -1,0 +1,49 @@
+package com.example.server.data.viewer;
+
+import java.util.List;
+import javax.jdo.Query;
+import javax.jdo.PersistenceManager;
+
+import com.example.server.data.factory.PMF;
+import com.example.server.data.repository.patterns.PatternEntity;
+
+public class DataViewer {
+
+	public static final String GET_ALL_PATTERNS 
+									= "SELECT * FROM PatternEntity";
+	
+	@SuppressWarnings("unchecked")
+	public static List<PatternEntity> view(String standard, String queryStr) throws Exception{
+		
+		List<PatternEntity> dettached = null;
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query query = pm.newQuery(PatternEntity.class);
+		//query.setOrdering("name");
+		String queryx = "select from " + PatternEntity.class.getName();
+		try {
+			List<PatternEntity> employees = (List<PatternEntity>) query.execute();
+			
+			
+			//have to take out all data before closing the door
+			if (employees.iterator().hasNext()) {
+                for (PatternEntity e : employees) {
+                    System.out.println(e.getKey());
+                }
+            }
+			
+			
+			
+			//results = (List<PatternEntity>) query.execute();
+			
+			dettached = (List<PatternEntity>) pm.detachCopyAll(employees);
+			pm.close();
+			
+			//System.out.print(results.size());	
+		}catch(Exception e){ 
+			pm.close(); //close this before re throw the exception
+			throw e;
+		}
+		//pm.close();
+		return dettached;
+	}
+}

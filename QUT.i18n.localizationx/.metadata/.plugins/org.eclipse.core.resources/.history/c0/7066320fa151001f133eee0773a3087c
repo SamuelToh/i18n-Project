@@ -1,0 +1,75 @@
+package com.example.server;
+
+import java.io.InputStream;
+import java.util.Date;
+
+import javax.jdo.PersistenceManager;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.Path;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import com.example.server.data.repository.patterns.PatternEntity;
+import com.google.gwt.http.client.Response;
+
+@Path("/")
+public class HelloResource {
+
+	
+/*	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/SRX/Patterns/{request}")
+	public String patternSRX(@PathParam("request") String request){
+		//We first check what exactly is the query
+		if(request.equals("ALL"))
+			return "Retrieving all patterns";
+		//Else we return only the specified pattern only
+		return "Returning pattern name" + request;
+
+	}
+*/	
+		
+	
+	/*
+	@POST
+	@Consumes(MediaType.TEXT_XML)
+	@Path("/SRX/Patternz/{request}")
+	public void newPatternClone1(@PathParam("request") String pattern, String content){
+		//changed return type from string to int
+		//and it now returns google.response.created
+		Date date = new Date();
+
+		Greeting greeting = new Greeting(content, date);
+
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        try {
+            pm.makePersistent(greeting);
+        } finally {
+            pm.close();
+        }
+        
+        //return Response.SC_CREATED;
+        
+		//System.out.println("t");
+		//return "Created";
+		//return 202;
+	}
+	*/
+	
+	
+	
+
+	
+}

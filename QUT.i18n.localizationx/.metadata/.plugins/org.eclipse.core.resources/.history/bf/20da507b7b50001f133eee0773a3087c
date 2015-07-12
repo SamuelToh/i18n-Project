@@ -1,0 +1,34 @@
+package com.example.server.data.viewer;
+
+import java.util.List;
+import javax.jdo.Query;
+import javax.jdo.PersistenceManager;
+
+import com.example.server.data.factory.PMF;
+import com.example.server.data.repository.patterns.PatternEntity;
+
+public class DataViewer {
+
+	public static final String GET_ALL_PATTERNS 
+									= "SELECT * FROM PatternEntity";
+	
+	@SuppressWarnings("unchecked")
+	public static List<PatternEntity> view(String standard, String queryStr) throws Exception{
+		
+		List<PatternEntity> results = null;
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query query = pm.newQuery(PatternEntity.class);
+		//query.setOrdering("name");
+		
+		try {
+			
+			results = (List<PatternEntity>) query.execute();
+			
+		}catch(Exception e){ 
+			pm.close(); //close this before re throw the exception
+			throw e;
+		}
+		pm.close();
+		return results;
+	}
+}

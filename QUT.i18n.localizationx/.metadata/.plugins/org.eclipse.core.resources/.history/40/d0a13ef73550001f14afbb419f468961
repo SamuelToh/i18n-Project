@@ -1,0 +1,44 @@
+package com.example.server.data.repository.patterns;
+
+
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.users.User;
+import java.util.Date;
+import java.util.List;
+
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+@PersistenceCapable
+public class PatternEntity {
+
+	@PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    private Key key;
+
+    @Persistent
+    private String name;
+
+    @Persistent
+    private String standard;
+    
+    @Persistent
+    private String regularExpression;
+        
+    @Persistent
+    private Date lastUpdate;
+    
+    @Persistent(mappedBy = "AnnotationEntity")
+    private List<AnnotationEntity> annotations;
+
+	public void setKey(Key key) {
+		this.key = key;
+	}
+
+	public Key getKey() {
+		return key;
+	}
+
+}

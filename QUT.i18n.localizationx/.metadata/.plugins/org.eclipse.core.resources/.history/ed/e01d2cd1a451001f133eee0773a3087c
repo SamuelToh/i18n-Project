@@ -1,0 +1,280 @@
+package com.example.server;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.jdo.PersistenceManager;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.Path;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NameList;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import com.example.Helper.XMLHelper;
+import com.example.server.data.repository.patterns.AnnotationEntity;
+import com.example.server.data.repository.patterns.PatternEntity;
+import com.example.server.data.viewer.DataViewer;
+import com.example.server.data.writer.DataCommitter;
+import com.google.appengine.api.datastore.Key;
+
+/**
+ * This class acts as an End Point in our REST web service.
+ * It contains all implementations of SRX
+ * @author <a href="mailto:yu.toh@connect.qut.edu.au">Samuel Toh</a>
+ * @version $Revision: 1 $
+ */
+@Path("/")
+public class SrxResource {
+
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/{lang}")
+	/**
+	 * An echo method to test our GET method in JUnit.
+	 * This method is purely for testing purpose only.
+	 */
+	public String hello(@PathParam("lang") String lang){
+		return "hello world " + lang;
+	}
+	/*
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/SRX/Patterns")
+	public String getPatternNames() throws Exception{
+		List<PatternEntity> patterns 
+				= DataViewer.view("SRX", null);
+		return getNames(patterns);
+	}
+	*/
+	
+	@GET
+	@Produces(MediaType.TEXT_XML)
+	@Path("/SRX/Patterns")
+	public Response getPatternNames() throws Exception{
+		List<PatternEntity> patterns 
+				= DataViewer.view("SRX", null);
+		return Response.ok(getNames(patterns)).build();
+	}
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/SRX/Patterns/{patternName}")
+	public String getPatternDetail(@PathParam("patternName") String name) throws Exception{
+		List<PatternEntity> patterns = DataViewer.view("SRX", DataViewer.getNameFilter(name));
+		//return Response.status(javax.ws.rs.core.Response.Status.NOT_FOUND).build();
+		if(patterns.size() < 1)
+			throw new Exception
+						("Repository does not contain a pattern called " + name);
+		
+		return getPatternDetail(patterns);
+	}
+	
+	/**
+	 * Creates a new segmentation pattern in our SRX repository.
+	 * 
+	 * @param content - passed in as a text_xml document containing all the pattern
+	 * details.
+	 */
+	@POST
+	@Consumes(MediaType.TEXT_XML)
+	@Path("/SRX/Patterns")
+	public void newPattern(String content) throws Exception{
+
+		InputStream is = new ByteArrayInputStream(content.getBytes("UTF-8"));
+		
+		//Commit our data after reading the pattern.
+		DataCommitter.Commit(readPattern(is));
+		
+	}
+	
+	@PUT
+	@Consumes(MediaType.TEXT_XML)
+	@Path("SRX/Patterns/")
+	/**
+	 * Updates a segment pattern in our SRX repository.
+	 * 
+	 * @param content - passed in as a text_xml document containing all the pattern
+	 * details.
+	 */
+	public void updatePattern(String content){
+		
+	}
+	
+	/*
+	protected Key getPatternKey(InputStream content) throws SAXException, IOException, ParserConfigurationException{
+		DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document doc = builder.parse(content);
+		Element root = doc.getDocumentElement();
+		
+		//Key key = new Key();
+		
+	}*/
+	
+	/** 
+	 * This method parses the given content into our PatternEntity object 
+	 * The reason for it being a protected is because we want JUnit to access
+	 * this method and test its reliability
+	 * 
+	 * @param content The input stream object containing our XML pattern details
+	 * @return Returns the PatternEntity object containing all parsed data
+	 * 
+	 * */
+	protected PatternEntity readPattern(InputStream content) throws Exception 
+	{	
+		PatternEntity pattern = new PatternEntity();
+		DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document doc = builder.parse(content);
+		Element root = doc.getDocumentElement();
+
+		if(!root.getNodeName().equals("l8nPatternML")){
+			throw new Exception("Root element is not l8nPatternML!");
+		}
+		
+		Node node = root.getFirstChild();
+		while(node != null) {
+			//if found entry point <Pattern>
+			if(node.getNodeName().equals("Pattern"))
+				populatePattern(pattern, node);
+			
+			node = node.getNextSibling();
+		}
+		
+         return pattern; 
+	}
+	
+	private void populatePattern(PatternEntity pattern, Node node){
+		pattern.setName(XMLHelper.getAttrValString(node, "name"));
+		pattern.setStandard(XMLHelper.getAttrValString(node, "standard"));				
+		Date date = new Date();
+		
+		pattern.setLastUpdate(date);		
+		pattern.setBeforeRegExpression(((XMLHelper.getAttrValString(node, "beforeRegEx"))));
+		pattern.setAfterRegExpression(((XMLHelper.getAttrValString(node, "afterRegEx"))));
+		pattern.setRuleType(((XMLHelper.getAttrValString(node, "mode"))));
+		pattern.setLocaleCode(((XMLHelper.getAttrValString(node, "locale"))));
+		
+		NodeList nodes = node.getChildNodes();
+
+		for (int i = 0; i < nodes.getLength(); i++) {
+			//Skip all the rubbish until we found a node
+			if(nodes.item(i).getNodeType() == org.w3c.dom.Node.ELEMENT_NODE)
+			{	
+				//If element is Annotations scan deeper in for a list of annotations
+				//and attach it onto our 
+				if(nodes.item(i).getNodeName().equals("Annotations"))
+					pattern.setAnnotations(readAnnotations(pattern, nodes.item(i)));	
+			} 
+         }
+	}
+	
+	private ArrayList<AnnotationEntity> readAnnotations(PatternEntity refPattern, Node node){
+		
+		ArrayList<AnnotationEntity> annotations = new ArrayList<AnnotationEntity>();
+		NodeList annotationList = node.getChildNodes();
+		
+		for(int i = 0; i < annotationList.getLength(); i ++)
+		{
+			if(annotationList.item(i).getNodeType() == org.w3c.dom.Node.ELEMENT_NODE)
+			{	
+				if(annotationList.item(i).getNodeName().equals("Annotation")){
+					annotations.add
+						(new AnnotationEntity
+								(refPattern,
+								 XMLHelper.getAttrValString(annotationList.item(i), "key"),
+								 XMLHelper.getAttrValString(annotationList.item(i), "value")));
+				}
+			} 
+		}
+		
+		return annotations;
+			
+	}
+	
+	private String getNames(List<PatternEntity> patterns) throws IOException{
+		Document document = XMLHelper.newDocument();
+	    Node root = (Element) document.createElement("l8nPatternML");
+	    document.appendChild(root);
+	    
+	    if (patterns.iterator().hasNext()) {
+	    	//Loop through each pattern and write out its name as XML string
+	    	for(PatternEntity pattern : patterns)
+	    	{
+	    		Element patternElement = document.createElement("Pattern");
+	    		patternElement.setAttribute("name", pattern.getName());
+	    		root.appendChild(patternElement);
+	    	}
+	    }	
+	  
+	    // Normalizing the DOM
+	   	document.getDocumentElement().normalize();
+
+	    XMLHelper xml = new XMLHelper(new StringWriter());
+		xml.write(document.getFirstChild());
+		return xml.writer.toString();
+	}
+	
+	public String getPatternDetail(List<PatternEntity> patterns) throws IOException{
+		Document document = XMLHelper.newDocument();
+		
+	    Node root = (Element) document.createElement("l8nPatternML");
+	    document.appendChild(root);
+	    
+	    if (patterns.iterator().hasNext()) {
+	    	//Loop through each pattern and write out its name as XML string
+	    	for(PatternEntity pattern : patterns)
+	    	{
+	    		//Read in the pattern details
+	    		Element patternElement = document.createElement("Pattern");
+	    		patternElement.setAttribute("name", pattern.getName());
+	    		patternElement.setAttribute("standard", pattern.getStandard());
+	    		patternElement.setAttribute("locale", pattern.getLocaleCode());
+	    		patternElement.setAttribute("mode", pattern.getRuleType());
+	    		XMLHelper.setAttribute(patternElement, "beforeRegEx", pattern.getBeforeRegExpression());
+	    		XMLHelper.setAttribute(patternElement, "afterRegEx", pattern.getAfterRegExpression());
+	    		patternElement.setAttribute("update", pattern.getLastUpdate().toString());
+	 
+	    		//Read in the Annotations
+				if(pattern.getAnnotations().size() > 0)
+				{
+					Element anns = document.createElement("Annotations");
+		    		
+					for(AnnotationEntity annotation : pattern.getAnnotations()){
+						Element ann = document.createElement("Annotation");
+						ann.setAttribute(annotation.getAnnotationKey(), annotation.getAnnotationValue());
+						anns.appendChild(ann);
+					}
+		    		
+					patternElement.appendChild(anns);
+				}
+	    		root.appendChild(patternElement);
+	    	}
+	    }	
+	  
+	    // Normalizing the DOM
+	   	document.getDocumentElement().normalize();
+	   	//print out the document as string
+	    XMLHelper xml = new XMLHelper(new StringWriter());
+		xml.write(document.getFirstChild());
+		return xml.writer.toString();
+	}
+}

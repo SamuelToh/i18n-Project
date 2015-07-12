@@ -1,0 +1,5 @@
+package com.example.server.xml.datastructure;
+
+public class Pattern {
+
+}

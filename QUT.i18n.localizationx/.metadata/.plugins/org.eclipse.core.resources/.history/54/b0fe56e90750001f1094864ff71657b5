@@ -1,0 +1,14 @@
+package com.example.server.xml.datastructure;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "book")
+public class Pattern {
+	  "<Pattern>"
+  	+ "<name>Sentence breaker</name>" 
+  	+ "<standard>SRX</standard>"
+  	+ "<regularExpression> \n </regularExpression>"
+		+ "</Pattern>";
+  	
+  	public String name
+}

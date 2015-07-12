@@ -1,0 +1,164 @@
+package com.example.server.data.repository.patterns;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.jdo.annotations.Persistent;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlElements;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement
+public class Pattern {
+	
+	/**
+     * Name of the pattern
+     */
+    private String name;
+	
+    /**
+     * SRX or TMX
+     */
+    private String standard;
+    
+    /**
+     * The language the rule belongs to.
+     */
+    private String localeCode;
+    
+    /**
+     * State whether it is an exception or break rule.
+     */
+    private String ruleType;
+    
+    /**
+     * A regular expression which represents the text that appears before a segment break.
+     */
+    private String beforeRegExpression;
+
+    /**
+     * A regular expression which represents the text that appears after a segment break.
+     */
+    private String afterRegExpression;
+    
+    private Date lastUpdate;
+
+    private List<Annotation> annotation;
+    
+
+	/**
+	 * Sets the name of the pattern
+	 * @param name string representational of the name of pattern
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * Returns the pattern name
+	 * @return a string containning the pattern name
+	 */
+	@XmlAttribute
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Determines which standard this pattern belongs to. e.g. TMX SRX
+	 * @param standard the standard
+	 */
+	public void setStandard(String standard) {
+		this.standard = standard;
+	}
+
+	/**
+	 * Returns the standard
+	 * @return
+	 */
+	@XmlAttribute
+	public String getStandard() {
+		return standard;
+	}
+	
+	/**
+	 * Sets the last updated time for this pattern
+	 * @param lastUpdate the date object
+	 */
+	public void setLastUpdate(Date lastUpdate) {
+		this.lastUpdate = lastUpdate;
+	}
+
+	/**
+	 * Returns the last updated time object
+	 * @return 
+	 */
+	@XmlAttribute
+	public Date getLastUpdate() {
+		return lastUpdate;
+	}
+
+	/**
+	 * Set the list of annotations for this pattern
+	 * @param annotations a list of AnnotationEntities
+	 */
+	public void setAnnotations(List<Annotation> annotations) {
+		this.annotation = annotations;
+	}
+
+	/**
+	 * Returns you a list of annotations
+	 * @return a java.ulti.List containing the AnnotationEntity
+	 */
+	@XmlElementWrapper(name="Annotations")
+	@XmlElement
+	public List<Annotation> getAnnotation() {
+		return annotation;
+	}
+
+	/**
+	 * Sets the language code for this pattern e.g. "en" "de" etc
+	 * @param localeCode The locale code for this pattern.
+	 */
+	public void setLocaleCode(String localeCode) {
+		this.localeCode = localeCode;
+	}
+
+	/**
+	 * Returns the locale code for this pattern
+	 * @return 
+	 */
+	@XmlAttribute	
+	public String getLocaleCode() {
+		return localeCode;
+	}
+
+	public void setRuleType(String ruleType) {
+		this.ruleType = ruleType;
+	}
+
+	@XmlAttribute
+	public String getRuleType() {
+		return ruleType;
+	}
+
+	public void setBeforeRegExpression(String beforeRegExpression) {
+		this.beforeRegExpression = beforeRegExpression;
+	}
+
+	@XmlAttribute
+	public String getBeforeRegExpression() {
+		return beforeRegExpression;
+	}
+
+	public void setAfterRegExpression(String afterRegExpression) {
+		this.afterRegExpression = afterRegExpression;
+	}
+
+	@XmlElement	
+	public String getAfterRegExpression() {
+		return afterRegExpression;
+	}
+}

@@ -1,0 +1,100 @@
+package com.example.server;
+
+import java.io.File;
+import java.util.List;
+import net.sf.okapi.lib.segmentation.ISegmenter;
+import net.sf.okapi.lib.segmentation.SRXDocument;
+
+import net.sf.okapi.common.LocaleId;
+import net.sf.okapi.common.resource.Segment;
+import net.sf.okapi.common.resource.TextContainer;
+import java.util.Date;
+
+import javax.jdo.PersistenceManager;
+
+import com.example.client.GreetingService;
+import com.example.client.PsuedoTranslator;
+import com.example.shared.FieldVerifier;
+import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+
+/**
+ * The server side implementation of the RPC service.
+ */
+@SuppressWarnings("serial")
+public class GreetingServiceImpl extends RemoteServiceServlet implements
+		GreetingService {
+
+	private String mySRX = 
+	"<?xml version=\"1.0\" encoding=\"UTF-8\"?> " +
+			"<srx xmlns=\"http://www.lisa.org/srx20\" xmlns:okpsrx=\"http://okapi.sf.net/srx-extensions\" version=\"2.0\"> " +
+			"<header segmentsubflows=\"yes\" cascade=\"no\">" +
+			"<formathandle type=\"start\" include=\"no\"></formathandle>" +
+			"<formathandle type=\"end\" include=\"yes\"></formathandle>" +
+			"<formathandle type=\"isolated\" include=\"no\"></formathandle>" +
+			"<okpsrx:options oneSegmentIncludesAll=\"no\" trimLeadingWhitespaces=\"no\" trimTrailingWhitespaces=\"no\"></okpsrx:options>" +
+			"<okpsrx:sample language=\"en\" useMappedRules=\"yes\">Mr. Holmes is from the U.K. not the U.S. Is Dr. Watson from there too? Yes: both are." +
+			"\"Right?\" Yes, indeed. I'm all for it! But you are not. \"Yes.\" Here too." +
+			"In the U.S.: more to come. Right, e.g.: There is that. (e.g.: the cat). Test!?. And here.</okpsrx:sample>" +
+			"<okpsrx:rangeRule></okpsrx:rangeRule>" +
+			"</header>" +
+			"<body>" +
+			"<languagerules>" +
+			"<languagerule languagerulename=\"default\">" +
+			"<rule break=\"no\">" +
+			"<beforebreak></beforebreak>" +
+			"<afterbreak></afterbreak>" +
+			"</rule>" +
+			"<rule break=\"no\">" +
+			"<beforebreak>([A-Z].){2,}</beforebreak>" +
+			"<afterbreak>s</afterbreak>" +
+			"<afterbreak>&#092;s[&#092;p{Lu}]</afterbreak>" +
+			"</rule>" +
+			"<rule break=\"yes\">" +
+			"<beforebreak>&#092;w+[&#092;p{Pe}&#092;p{Po}&#092;\"]*[&#092;.?!]+[&#092;p&#092;p&#092;</beforebreak>" +
+			"<afterbreak>&#092;s</afterbreak>" +
+			"</rule>" +
+			"</languagerule>" +
+			"</languagerules>" +
+			"<maprules>" +
+			"<languagemap languagepattern=\".*\" languagerulename=\"default\"></languagemap>" +
+			"</maprules>" +
+			"</body>" +
+			"</srx>";
+
+	
+	
+	public String greetServer(String input) throws IllegalArgumentException {
+		
+		SRXDocument doc = new SRXDocument();
+		File f = new File("C:\\myRules.srx");
+		
+		doc.loadRules(f.getAbsolutePath());
+		
+		ISegmenter segmenter = doc.compileLanguageRules(LocaleId.fromString("en"), null);
+		segmenter.computeSegments(input);
+
+		TextContainer tc = new TextContainer();
+		tc.createSegments(segmenter.getRanges());
+		List<Segment> segments = tc.getSegments();
+		
+		return segments.get(0).text.getText();
+		
+
+		
+		
+	/*	
+		Date date = new Date();
+
+		Greeting greeting = new Greeting(input, date);
+
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        try {
+            pm.makePersistent(greeting);
+        } finally {
+            pm.close();
+        }
+        
+		return PsuedoTranslator.translate(input);
+		*/
+	}
+}

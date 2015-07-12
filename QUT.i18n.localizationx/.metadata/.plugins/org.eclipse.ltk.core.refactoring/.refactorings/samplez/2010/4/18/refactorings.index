@@ -1,0 +1,35 @@
+1272158512878	Encapsulate field 'name'
+1272171853865	Delete element
+1272173045684	Rename type 'TestSRXResource'
+1272173075342	Rename type 'ResourceSRX'
+1272177846914	Encapsulate field 'key'
+1272177855626	Encapsulate field 'name'
+1272177864288	Encapsulate field 'standard'
+1272177869815	Encapsulate field 'regularExpression'
+1272177877371	Encapsulate field 'lastUpdate'
+1272177886176	Encapsulate field 'annotations'
+1272185583907	Rename package 'com.example.server.data.repository.datawriter'
+1272185634859	Delete element
+1272185913802	Rename type 'DataWriter'
+1272187196996	Encapsulate field 'patternRef'
+1272202402161	Encapsulate field 'localeCode'
+1272241449632	Encapsulate field 'ruleType'
+1272241455420	Encapsulate field 'beforeRegExpression'
+1272241460202	Encapsulate field 'afterRegExpression'
+1272352917045	Rename type 'ServiceContract'
+1272362366618	Delete element
+1272362429613	Delete elements
+1272362437496	Delete elements
+1272363140043	Delete element
+1272363197716	Rename package 'com.example.Helper'
+1272363214472	Delete element
+1272363262779	Rename package 'com.example.server'
+1272363341029	Rename package 'com.example.server.xml.datastructure'
+1272363380150	Move compilation unit
+1272363415428	Delete element
+1272363432104	Move compilation unit
+1272363454477	Rename package 'com.example.server.data.factory'
+1272363559594	Rename package 'com.example.server.data.repository.patterns'
+1272363576257	Move compilation unit
+1272363582192	Move compilation unit
+1272363589157	Delete elements

@@ -1,0 +1,66 @@
+package com.example.client;
+
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.TextArea;
+import com.google.gwt.user.client.ui.Widget;
+
+public class PseudoTranslatePanel extends Composite {
+
+	private static PseudoTranslatePanelUiBinder uiBinder = GWT
+			.create(PseudoTranslatePanelUiBinder.class);
+
+	interface PseudoTranslatePanelUiBinder extends
+			UiBinder<Widget, PseudoTranslatePanel> {
+	}
+	
+	GreetingServiceAsync service = GWT.create(GreetingService.class);
+
+	@UiField
+	TextArea textArea;
+	
+	@UiField
+	Button translateButton;
+	
+	@UiField
+	Label outputLabel;
+	
+	public PseudoTranslatePanel() {
+		initWidget(uiBinder.createAndBindUi(this));
+	}
+
+	
+	@UiHandler("textArea")
+	public void onTextAreaKeyUp(KeyUpEvent event) {
+		translateButton.setEnabled( !textArea.getText().trim().isEmpty() );
+	}
+	
+	@UiHandler("translateButton")
+	public void onTranslateButtonClicked(ClickEvent event) {
+		translateButton.setEnabled(false);
+		outputLabel.setText("Loading...");
+		service.greetServer( textArea.getText() , new AsyncCallback<String>() {
+			
+			@Override
+			public void onSuccess(String result) {
+				outputLabel.setText(result);
+				translateButton.setEnabled(true);
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				outputLabel.setText("failed...");
+				translateButton.setEnabled(true);
+			}
+		});
+	}
+	
+}

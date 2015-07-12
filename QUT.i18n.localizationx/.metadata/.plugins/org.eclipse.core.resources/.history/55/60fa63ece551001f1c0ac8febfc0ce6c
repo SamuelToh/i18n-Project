@@ -1,0 +1,98 @@
+package com.example.server.data.writer;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.jdo.PersistenceManager;
+import javax.jdo.Query;
+
+import com.example.server.data.factory.PMF;
+import com.example.server.data.repository.patterns.Annotation;
+import com.example.server.data.repository.patterns.AnnotationEntity;
+import com.example.server.data.repository.patterns.Pattern;
+import com.example.server.data.repository.patterns.PatternEntity;
+
+/**
+ * DataCommitter class facilitates saving of our pattern entity into
+ * google big table.
+ * @author <a href="mailto:yu.toh@connect.qut.edu.au">Samuel Toh</a>
+ * @version $Revision: 1 $
+ */
+public class DataCommitter {
+
+	public static final int PATTERN_UPDATE_FAIL_PAT_NOT_FOUND = 100;
+	public static final int PATTERN_CREATE_FAIL = -2;
+	public static final int PATTERN_UPDATE_FAIL = -1;
+	public static final int PATTERN_CREATED = 1;
+	public static final int PATTERN_UPDATED = 2;
+	public static final int PATTERN_DELETED = 3;
+	
+	private static String FILTER_BY_PATTERN_NAME = "name == '%s'";
+	
+	public static String getNameFilter(String patternName){
+		return String.format(FILTER_BY_PATTERN_NAME, patternName);
+	}
+	
+	/**
+	 * Commit our data into the server.
+	 * 
+	 * @param pattern to be saved into the data repository.
+	 * @throws Exception thrown when data commit fails.
+	 */
+	public static int Create(PatternEntity pattern) throws Exception{
+
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		
+		try {
+			//try commit the data
+			pm.makePersistent(pattern); 
+			
+		}catch(Exception e){ 
+			pm.close(); //close this before re throw the exception
+			return PATTERN_UPDATE_FAIL;
+
+		}
+		pm.close();
+		return PATTERN_CREATED;
+	}
+	
+	public static int Update(PatternEntity newPattern){
+
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query query = pm.newQuery(PatternEntity.class);
+		query.setFilter(getNameFilter(newPattern.getName()));
+		
+		try {
+			List<PatternEntity> results = (List<PatternEntity>) query.execute();
+
+			if(results.size() < 1)
+				return PATTERN_UPDATE_FAIL_PAT_NOT_FOUND;
+			
+			results.get(0).setName(newPattern.getName());
+			results.get(0).setLocaleCode(newPattern.getLocaleCode());
+			results.get(0).setRuleType(newPattern.getRuleType());
+			results.get(0).setStandard(newPattern.getStandard());
+			results.get(0).setBeforeRegExpression(newPattern.getBeforeRegExpression());
+			results.get(0).setAfterRegExpression(newPattern.getAfterRegExpression());
+			results.get(0).setLastUpdate(newPattern.getLastUpdate());
+			
+			List<AnnotationEntity> patternAnn = new LinkedList<AnnotationEntity>();
+			for(AnnotationEntity ann : newPattern.getAnnotations())
+			{
+				patternAnn.add(new AnnotationEntity(results.get(0),ann.getAnnotationKey(), ann.getAnnotationValue()));
+			}
+			
+			if(patternAnn.size() > 0 )
+				results.get(0).setAnnotations(patternAnn);
+			
+			
+			
+		}catch(Exception e){ 
+			pm.close(); //close this before re throw the exception
+			return PATTERN_UPDATE_FAIL;
+		}
+		pm.close();
+		return PATTERN_UPDATED;
+	}
+				
+}

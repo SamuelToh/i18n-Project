@@ -1,0 +1,12 @@
+package qut.localization.service.data.repository;
+
+public abstract class DataManager {
+
+	public static final int PATTERN_UPDATE_FAIL_PAT_NOT_FOUND = 100;
+	public static final int PATTERN_CREATE_FAIL = -2;
+	public static final int PATTERN_UPDATE_FAIL = -1;
+	public static final int PATTERN_CREATED = 1;
+	public static final int PATTERN_UPDATED = 2;
+	public static final int PATTERN_DELETED = 3;
+	
+}

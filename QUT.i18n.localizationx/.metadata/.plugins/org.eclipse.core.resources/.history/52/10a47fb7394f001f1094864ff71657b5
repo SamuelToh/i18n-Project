@@ -1,0 +1,57 @@
+package com.example.server;
+
+mport java.util.List;
+import net.sf.okapi.lib.segmentation.ISegmenter;
+import net.sf.okapi.lib.segmentation.SRXDocument;
+
+import net.sf.okapi.common.LocaleId;
+import net.sf.okapi.common.resource.Segment;
+import net.sf.okapi.common.resource.TextContainer;
+import java.util.Date;
+
+import javax.jdo.PersistenceManager;
+
+import com.example.client.GreetingService;
+import com.example.client.PsuedoTranslator;
+import com.example.shared.FieldVerifier;
+import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+
+/**
+ * The server side implementation of the RPC service.
+ */
+@SuppressWarnings("serial")
+public class GreetingServiceImpl extends RemoteServiceServlet implements
+		GreetingService {
+
+	public String greetServer(String input) throws IllegalArgumentException {
+		
+		SRXDocument doc = new SRXDocument();
+		doc.loadRules("C:\\SRXTest.srx");
+		
+		ISegmenter segmenter = doc.compileLanguageRules(LocaleId.fromString("en"), null);
+		segmenter.computeSegments(input);
+
+		TextContainer tc = new TextContainer();
+		tc.createSegments(segmenter.getRanges());
+		List<Segment> segments = tc.getSegments();
+		
+		return segments.get(0).text.getText();
+		
+
+		
+		
+		
+		Date date = new Date();
+
+		Greeting greeting = new Greeting(input, date);
+
+        PersistenceManager pm = PMF.get().getPersistenceManager();
+        try {
+            pm.makePersistent(greeting);
+        } finally {
+            pm.close();
+        }
+        
+		return PsuedoTranslator.translate(input);
+	}
+}

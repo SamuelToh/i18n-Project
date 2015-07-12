@@ -1,0 +1,54 @@
+package com.example.server.data.viewer;
+
+import java.util.List;
+import javax.jdo.Query;
+import javax.jdo.PersistenceManager;
+
+import com.example.server.data.factory.PMF;
+import com.example.server.data.repository.patterns.AnnotationEntity;
+import com.example.server.data.repository.patterns.PatternEntity;
+
+public class DataViewer {
+	
+	private static String FILTER_BY_PATTERN_NAME = "name == %s";
+	
+	public static String getNameFilter(String patternName){
+		return String.format(FILTER_BY_PATTERN_NAME, patternName);
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public static List<PatternEntity> view(String standard, String filter) throws Exception{
+		
+		List<PatternEntity> dettached = null;
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query query = pm.newQuery(PatternEntity.class);
+		
+		//Construct the GQL filter for our query
+		if(filter != null)
+			query.setFilter(filter);
+		
+		query.setOrdering("name");
+		
+		try {
+			List<PatternEntity> results = (List<PatternEntity>) query.execute();
+			//TODO : Check if has results before iterating.
+			
+			//Dettach the main pattern object first
+			dettached = (List<PatternEntity>) pm.detachCopyAll(results);
+			//Dettach all the annotations object from our result
+			for(int i = 0; i < dettached.size(); i ++){
+				if(results.get(i).getAnnotations() != null)				
+					dettached.get(i).setAnnotations
+										((List<AnnotationEntity>) 
+												pm.detachCopyAll(results.get(i).getAnnotations()));
+			}
+			
+		}catch(Exception e){ 
+			pm.close(); //close this before re throw the exception
+			throw e;
+		}
+		pm.close();
+		return dettached;
+	}
+}
